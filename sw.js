@@ -1,6 +1,6 @@
 // Cache solo dei file locali della PWA; le API e Google non vengono intercettati.
 importScripts('./notification-core.js');
-const CACHE = 'anime-explorer-shell-v34';
+const CACHE = 'anime-explorer-shell-v41';
 const ASSETS = ['./', './index.html', './version.js', './calendar.js', './calendar.css', './notification-core.js', './notifications.js', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
