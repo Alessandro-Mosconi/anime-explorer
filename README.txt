@@ -1,4 +1,6 @@
-Anime Explorer v1.5
+Anime Explorer
+
+Il numero di versione mostrato nel sito è definito soltanto in version.js.
 
 1. Carica tutti i file nello stesso repository GitHub Pages e ricarica la PWA dopo la pubblicazione.
 2. Per collegare una lista MyAnimeList pubblica, apri Impostazioni, inserisci il nome utente MAL e scegli «Sincronizza lista pubblica». La lettura usa Elvarora; non serve un Client ID.
