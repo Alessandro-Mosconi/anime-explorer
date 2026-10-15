@@ -15,19 +15,45 @@
 :root{color-scheme:dark;--bg:#0b1020;--panel:#141c30;--panel2:#1c2940;--text:#ecf2ff;--muted:#a4b2ce;--accent:#8e9bff;--border:#31405d;--red:#ffa0a8}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 65% -10%,#222f58 0%,transparent 48%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.5}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}.shell{max-width:1420px;margin:auto;padding:32px 22px 60px}header{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:27px;flex-wrap:wrap}h1{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.05em;margin:0;line-height:1.1}header p{color:var(--muted);margin:10px 0 0}.chip{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid #596bc1;color:#c7d1ff;border-radius:30px;padding:7px 12px}.layout{display:grid;grid-template-columns:305px minmax(0,1fr);gap:24px;align-items:start}.filters,.result-header,.empty,.notice{background:var(--panel);border:1px solid var(--border);border-radius:18px}.filters{padding:20px;position:sticky;top:15px}.filters h2{font-size:1.08rem;margin:0 0 14px}.field{display:block;margin:16px 0}.field>span,.field>label{display:block;font-size:.85rem;font-weight:700;color:#c7d2eb;margin-bottom:7px}input[type=text],input[type=number],select{background:#0e172a;border:1px solid #455577;color:#fff;border-radius:10px;padding:11px;width:100%;outline:none}input:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px #8e9bff22}.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}.small{font-size:.8rem;color:var(--muted)}.genrelist{border:1px solid var(--border);border-radius:10px;max-height:225px;overflow-y:auto;padding:9px;background:#0e172a}.genre{display:flex;align-items:center;gap:8px;padding:5px;border-radius:7px;font-size:.86rem}.genre:hover{background:#25334b}.genre input{accent-color:#9da7ff}.muted{color:var(--muted)}.checkrow{display:flex;align-items:center;gap:9px;font-size:.85rem;margin:11px 0}.checkrow input{accent-color:#9da7ff}.btn{border:0;border-radius:11px;padding:12px 16px;background:#8492fa;color:#0c1430;font-weight:800}.btn:hover:not(:disabled){background:#a7b0ff}.btn:disabled{opacity:.55;cursor:not-allowed}.ghost{background:transparent;color:#c9d5ee;border:1px solid var(--border)}.ghost:hover:not(:disabled){background:#243047}.actions{display:flex;gap:9px}.actions>*{flex:1}.result-header{padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}.result-header strong{font-size:1rem}.result-header small{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:17px}.anime{background:var(--panel);border:1px solid var(--border);border-radius:15px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .15s,border-color .15s}.anime:hover{transform:translateY(-3px);border-color:#8290d9}.poster{aspect-ratio:3/4;object-fit:cover;width:100%;background:#23324a}.anime-body{padding:14px;display:flex;flex-direction:column;flex:1;gap:8px}.anime h3{font-size:1rem;line-height:1.35;margin:0}.meta{display:flex;gap:8px;justify-content:space-between;align-items:center;color:#b2c1dc;font-size:.8rem;flex-wrap:wrap}.score{font-weight:800;color:#ffe09a}.tags{display:flex;gap:5px;flex-wrap:wrap}.tag{font-size:.68rem;background:#293650;color:#d3def5;border-radius:5px;padding:3px 6px}.synopsis{color:#b6c3dc;font-size:.82rem;margin:0;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}.more{display:flex;gap:8px;align-items:center;margin-top:auto;padding-top:7px;flex-wrap:wrap}.more a{font-size:.8rem;text-decoration:none;font-weight:700;color:#afbaff}.more a:hover{text-decoration:underline}.empty{padding:45px 20px;text-align:center;color:var(--muted)}.notice{padding:14px 18px;margin-bottom:18px;color:#ffd1d5;border-color:#7b4758;background:#2c2034}.pager{display:flex;align-items:center;justify-content:center;gap:15px;margin-top:26px}.pager span{font-size:.9rem;color:#bbc9e4}.loading{height:14px;width:14px;border:2px solid #222;border-top-color:transparent;border-radius:50%;display:inline-block;animation:spin .65s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.hidden{display:none!important}footer{margin-top:30px;font-size:.8rem;color:#8f9ebd}footer a{color:#bbc5ff}.modal{position:fixed;inset:0;background:#020713cd;display:flex;align-items:center;justify-content:center;padding:20px;z-index:5}.dialog{position:relative;background:var(--panel);border:1px solid var(--border);border-radius:18px;width:min(780px,100%);max-height:88vh;overflow:auto;padding:24px}.close{position:absolute;right:14px;top:10px;background:#303c55;border:0;color:white;border-radius:9px;padding:6px 11px;font-size:1.3rem}.dialog-layout{display:grid;grid-template-columns:170px 1fr;gap:20px}.dialog img{width:100%;border-radius:10px}.dialog h2{margin:0 35px 10px 0}.dialog p{white-space:pre-wrap;color:#c5d1ea}.dialog .meta{justify-content:flex-start} @media(max-width:850px){.layout{grid-template-columns:1fr}.filters{position:static}.shell{padding:22px 14px 44px}.cards{grid-template-columns:repeat(auto-fill,minmax(155px,1fr))}}@media(max-width:490px){.dialog-layout{grid-template-columns:1fr}.dialog-layout img{width:130px}.cards{gap:10px}.anime-body{padding:11px}.anime h3{font-size:.91rem}}
 
 .detail-section{margin-top:24px;border-top:1px solid var(--border);padding-top:18px}.detail-section h3{margin:0 0 10px;font-size:1.12rem}.detail-note{color:var(--muted);font-size:.82rem}.detail-list{display:grid;gap:10px}.detail-item{border:1px solid var(--border);border-radius:12px;background:#0e172a;padding:12px;display:flex;align-items:center;gap:12px;justify-content:space-between}.detail-item .description{min-width:0;flex:1}.detail-item strong{display:block;font-size:.9rem;overflow-wrap:anywhere}.detail-item small{color:var(--muted)}.detail-item button{flex-shrink:0}.detail-controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.mini-button{font-size:.77rem;padding:8px 10px}.stream-links{display:flex;gap:8px;flex-wrap:wrap}.stream-links a{display:inline-block;text-decoration:none;font-size:.8rem;padding:8px 10px;border:1px solid #6172a7;border-radius:9px}.detail-tab{scroll-margin-top:30px}.related-label{color:#a4b2ce;font-size:.78rem;margin-top:4px}.dialog{width:min(920px,100%)}.ep-score{font-weight:700;color:#ffe09a}.detail-toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.detail-toolbar a{display:inline-block;text-decoration:none}
+
+.quickbar{display:flex;gap:10px;margin-bottom:12px}.quicksearch{display:flex;flex:1;gap:8px}.quicksearch input{min-width:0;flex:1}.quicksearch .btn{white-space:nowrap}.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.groupbar{display:flex;align-items:center;gap:12px;background:#1a2640;border:1px solid #445578;border-radius:12px;padding:12px 14px;margin-bottom:13px;cursor:pointer}.groupbar input{width:19px;height:19px;accent-color:#939dff;flex:none}.groupbar small{display:block;font-size:.75rem;color:var(--muted);font-weight:400}.group-status{font-size:.79rem;color:#bbcae7;margin-bottom:14px}.primary-stream{display:inline-flex;align-items:center;justify-content:center;background:#8896fc;color:#0b1530!important;border-radius:9px;padding:9px 11px;font-weight:800!important;text-decoration:none!important;font-size:.78rem!important}.more .ghost{font-size:.79rem;padding:8px 10px}.more{gap:7px}.series-info{font-size:.73rem;color:#f4d899}.detail-nav{display:flex;gap:8px;overflow-x:auto;margin-top:18px;padding-bottom:10px;position:sticky;top:-24px;background:var(--panel);z-index:2}.detail-nav-button{white-space:nowrap;font-size:.82rem;padding:10px 12px}.detail-nav-button.active{background:#8291f4;color:#0b142c}.mobile-filter{display:none}.detail-item{align-items:flex-start}.detail-item .btn{white-space:nowrap}
+@media(max-width:850px){.layout{display:flex;flex-direction:column;gap:0}.layout main{width:100%}.filters{display:none;width:100%;order:2;margin-top:15px;position:static}.filters.mobile-open{display:block;position:fixed;top:68px;bottom:0;left:0;right:0;z-index:8;overflow-y:auto;margin:0;border-radius:16px 16px 0 0;padding-bottom:70px;box-shadow:0 0 0 100vmax #020613aa}.mobile-filter{display:block}.quickbar{position:sticky;top:0;background:#0b1020;padding:8px 0;z-index:4}.result-header{padding:12px;margin-bottom:12px}.shell{padding-top:15px}.groupbar{margin-bottom:10px}.dialog{max-height:96dvh;padding:15px}.modal{padding:6px}.detail-nav{top:-15px}}
+@media(max-width:490px){.quickbar{gap:6px}.quicksearch{gap:5px}.quicksearch .btn,.mobile-filter{padding:10px;font-size:.83rem}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.anime-body{gap:7px}.anime .poster{aspect-ratio:3/3.8}.synopsis{-webkit-line-clamp:2}.more{flex-direction:column;align-items:stretch}.more>*{text-align:center}.genrelist{max-height:170px}.detail-item{flex-direction:column}.detail-item .btn{width:100%}}
+
+.filter-badge{display:inline-flex;align-items:center;justify-content:center;background:#a0acff;color:#111a35;min-width:21px;height:21px;padding:0 5px;border-radius:999px;font-size:.72rem;font-weight:900;margin-left:5px}.filter-badge[hidden]{display:none!important}.filter-heading{display:flex;align-items:center;gap:8px}.season-accordion{background:#0e172a;border:1px solid var(--border);border-radius:13px;margin:11px 0;overflow:hidden}.season-accordion summary{display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;padding:15px;list-style:none}.season-accordion summary::-webkit-details-marker{display:none}.season-accordion summary:after{content:'⌄';font-size:1.25rem;color:#aebdff;transition:transform .15s}.season-accordion:not([open]) summary:after{transform:rotate(-90deg)}.season-accordion summary strong{display:block;font-size:.93rem}.season-accordion summary small{display:block;color:var(--muted);font-size:.78rem}.season-accordion-content{padding:0 13px 13px}.season-accordion .detail-item{background:#151e34}.season-accordion .detail-controls{margin-bottom:3px}.season-accordion summary:focus-visible{outline:2px solid #a0acff;outline-offset:-3px}
+
+/* Descrizioni compatte e accessibili: espansione indipendente per ogni scheda. */
+.synopsis-wrap{min-width:0}
+.synopsis-wrap .synopsis,.synopsis-wrap .detail-synopsis{margin:0;white-space:pre-line;overflow-wrap:anywhere;color:#b6c3dc}
+.synopsis-wrap .synopsis:not(.expanded),.synopsis-wrap .detail-synopsis:not(.expanded){display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.synopsis-wrap .synopsis.expanded,.synopsis-wrap .detail-synopsis.expanded{display:block;-webkit-line-clamp:unset;overflow:visible}
+.synopsis-wrap .read-more{display:inline-block;margin:4px 0 0;padding:3px 0;border:0;background:transparent;color:#b6beff;font-weight:750;font-size:.8rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.synopsis-wrap .read-more:focus-visible{outline:2px solid #aeb9ff;outline-offset:3px;border-radius:3px}
+.dialog .synopsis-wrap .detail-synopsis{color:#c5d1ea}
+
+/* v8: scheletri durante il caricamento */
+@keyframes shimmer{to{background-position-x:-200%}}
+.skeleton-card{min-height:348px;pointer-events:none}.skeleton-block{background:linear-gradient(100deg,#24314a 15%,#3a4965 35%,#24314a 60%);background-size:200% 100%;animation:shimmer 1.5s linear infinite;border-radius:7px}.skeleton-cover{aspect-ratio:3/4;border-radius:0}.skeleton-body{padding:14px;display:grid;gap:12px}.skeleton-line{height:14px}.skeleton-line.short{width:63%}
+.settings-trigger{display:inline-flex;gap:6px;align-items:center;white-space:nowrap}.settings-modal{z-index:12}.settings-panel{max-width:440px}.settings-panel h2{margin:0 35px 15px 0}.settings-panel label{display:block;margin:14px 0}.settings-panel select{margin-top:8px}.settings-panel .small{line-height:1.6}.settings-actions{display:flex;justify-content:flex-end;margin-top:16px}
+@media(max-width:850px){.settings-trigger{font-size:.85rem!important;padding:10px!important}}
+.source-links,.season-links{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.season-links{justify-content:flex-end;flex-shrink:0}.season-accordion>.source-links{padding:0 15px 10px}.detail-toolbar>.source-links{display:flex}.detail-item>.btn{flex-shrink:0}@media(max-width:600px){.detail-item{align-items:flex-start}.season-links{max-width:52%;justify-content:flex-end}.source-links .mini-button,.season-links .mini-button{font-size:.73rem;padding:7px 8px}}
+
+/* v15: collegamenti compatti e leggibili su schermi stretti */
+.source-links{display:flex;flex-wrap:wrap;gap:7px;min-width:0}.source-links .btn{display:inline-flex;justify-content:center;align-items:center;text-decoration:none;line-height:1.3;min-height:36px;min-width:76px;padding:8px 12px;white-space:normal;text-align:center}.season-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end;min-width:0}.season-links .source-links{flex-wrap:wrap}.detail-toolbar{align-items:center}.mal-comparison{padding:7px 0;color:#f4d899;font-weight:650}
+@media(max-width:620px){.detail-item{flex-direction:column;align-items:stretch}.detail-item .description{width:100%}.season-links{width:100%;justify-content:flex-start}.season-links .source-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));flex:1}.season-links .source-links .btn{width:100%;max-width:none}.season-links>button{width:auto;min-width:78px}.detail-toolbar .source-links{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.detail-toolbar .source-links .btn{width:100%}.detail-toolbar>a{max-width:100%}}
 </style>
 </head>
 <body>
 <div class="shell">
-<header><div><h1>Anime Explorer</h1><p>Scopri anime e film con i dati di MyAnimeList.</p></div><span class="chip">Tenrai API v1 · Gratis</span></header>
+<header><div><h1>Anime Explorer</h1><p>Scopri anime con voti e relazioni AniList.</p></div><button id="openSettings" class="btn ghost settings-trigger" type="button" aria-label="Impostazioni">⚙ Impostazioni</button></header>
 <div class="layout">
-<aside class="filters" aria-label="Filtri anime">
-<h2>Filtra gli anime</h2>
+<aside class="filters" id="filterPanel" aria-label="Filtri anime">
+<h2 class="filter-heading">Filtra gli anime <span class="filter-badge" id="desktopFilterCount" hidden>0</span></h2>
 <form id="searchForm">
-<label class="field"><span>Titolo</span><input type="text" id="query" placeholder="Es. Frieren, Naruto…" autocomplete="off"></label>
+
 <label class="field"><span>Formato</span><select id="type"><option value="">Tutti</option><option value="tv">Serie TV</option><option value="movie">Film</option><option value="ova">OVA</option><option value="ona">ONA</option><option value="special">Special</option><option value="tv_special">TV Special</option></select></label>
 <label class="field"><span>Stato</span><select id="status"><option value="">Tutti</option><option value="airing">In corso</option><option value="complete">Concluso</option><option value="upcoming">In arrivo</option></select></label>
-<div class="field"><span>Voto MyAnimeList</span><div class="pair"><label><small class="small">Minimo</small><input id="minScore" type="number" min="0" max="10" step="0.1" value="8"></label><label><small class="small">Massimo</small><input id="maxScore" type="number" min="0" max="10" step="0.1" placeholder="10"></label></div></div>
+<div class="field"><span>Voto (fonte selezionata)</span><div class="pair"><label><small class="small">Minimo</small><input id="minScore" type="number" min="0" max="10" step="0.1" value="8"></label><label><small class="small">Massimo</small><input id="maxScore" type="number" min="0" max="10" step="0.1" placeholder="10"></label></div></div>
 <div class="field"><span>Generi inclusi</span><div id="genres" class="genrelist"><span class="small">Caricamento generi…</span></div><small class="small">Seleziona uno o più generi (devono comparire tutti).</small></div>
 <div class="field"><span>Generi esclusi</span><div id="excludedGenres" class="genrelist"><span class="small">Caricamento generi…</span></div></div>
 <div class="field"><span>Anno di uscita (dal / al)</span><div class="pair"><input type="number" id="yearFrom" placeholder="Es. 2010" min="1960" max="2100"><input type="number" id="yearTo" placeholder="Es. 2026" min="1960" max="2100"></div></div>
@@ -38,14 +64,18 @@
 </form>
 </aside>
 <main>
+<div class="quickbar"><form id="quickSearch" class="quicksearch"><label for="query" class="visually-hidden">Cerca anime per titolo</label><input type="text" id="query" placeholder="Cerca un anime…" autocomplete="off"><button type="submit" class="btn">Cerca</button></form><button type="button" class="btn ghost mobile-filter" id="toggleFilters" aria-controls="filterPanel" aria-expanded="false">☰ Filtri <span class="filter-badge" id="mobileFilterCount" hidden>0</span></button></div>
+<label class="groupbar"><input type="checkbox" id="groupAnime"><span><strong>Raggruppa anime per serie</strong><small> Classifica AniList: stagioni collegate già nel catalogo</small></span></label>
+<div id="groupStatus" class="group-status hidden" aria-live="polite"></div>
 <div class="result-header"><div><strong id="resultTitle">Anime consigliati</strong><div><small id="resultCount">Imposta i filtri oppure avvia la ricerca</small></div></div><button id="copyButton" type="button" class="btn ghost" style="font-size:.82rem">Copia link ricerca</button></div>
-<div id="notice" class="notice hidden" role="alert"></div><p class="small" style="margin:0 0 18px">Problemi di rete? <a target="_blank" rel="noopener noreferrer" href="https://api.tenrai.org/v1/anime?limit=1">Verifica se l’API Tenrai risponde nel browser ↗</a></p>
+<div id="notice" class="notice hidden" role="alert"></div><p class="small" style="margin:0 0 18px">Problemi di rete? <a target="_blank" rel="noopener noreferrer" href="https://anilist.co">Verifica AniList ↗</a></p>
 <div id="results" class="cards"></div>
 <div id="empty" class="empty">Premi “Cerca anime” per visualizzare i risultati.</div>
 <div id="pager" class="pager hidden"><button class="btn ghost" id="prev" type="button">← Precedente</button><span id="pageLabel"></span><button class="btn ghost" id="next" type="button">Successiva →</button></div>
 </main></div>
-<footer>Ricerca anime tramite API Tenrai, soggetta a disponibilità. Le schede includono stagioni, episodi, consigliati e piattaforme streaming. Il pulsante AnimeUnity cerca su Google con il filtro inurl:animeunity (nelle ricerche «Season 4» diventa «4»), senza domini fissi.</footer>
+<footer>Ricerca e voti tramite la fonte selezionata (AniList predefinita o MAL tramite Tenrai). Tenrai è utilizzata solo per dettagli aggiuntivi. Le schede includono stagioni, episodi, consigliati e piattaforme streaming. Il pulsante AnimeUnity cerca su Google con il filtro inurl:animeunity (nelle ricerche «Season 4» diventa «4»), senza domini fissi.</footer>
 </div>
+<div class="modal settings-modal hidden" id="settingsModal" role="dialog" aria-modal="true" aria-label="Impostazioni ricerca"><section class="dialog settings-panel"><button id="closeSettings" class="close" type="button" aria-label="Chiudi impostazioni">×</button><h2>Impostazioni ricerca</h2><p class="small">Le impostazioni vengono salvate solo su questo dispositivo.</p><label>Fonte di ricerca<select id="sourceSetting"><option value="anilist">AniList — predefinita e più veloce</option><option value="mal">MyAnimeList (Tenrai) — più lenta</option></select></label><p class="small">MyAnimeList richiede più chiamate per ricostruire le opere; AniList recupera le relazioni durante la ricerca. La scelta rimane salvata su questo dispositivo.</p><label>Richieste catalogo in parallelo<select id="concurrencySetting"><option value="1">1 — Conservativo</option><option value="2">2 — Moderato</option><option value="3">3 — Consigliato</option></select></label><p class="small">AniList recupera anime e relazioni nella stessa chiamata. Un limitatore condiviso rispetta i limiti di frequenza; aumentare la concorrenza non elimina il limite API.</p><label>Pagine da precaricare (AniList: 50 / MAL: fino a 100 anime)<select id="preloadPagesSetting"><option value="5">5 pagine — 250 AniList / 500 MAL</option><option value="10">10 pagine — 500 AniList / 1.000 MAL</option><option value="15">15 pagine — 750 AniList / 1.500 MAL</option><option value="20">20 pagine — 1.000 AniList / 2.000 MAL</option></select></label><p class="small">Si applica soltanto con «Raggruppa anime». Più pagine ampliano il campione e aumentano il tempo della prima ricerca. Le pagine dei risultati già elaborati rimangono immediate.</p><label><input type="checkbox" id="progressiveSetting" checked> Mostra una classifica provvisoria mentre verifica le relazioni</label><div class="settings-actions"><button class="btn" id="saveSettings" type="button">Salva e chiudi</button></div></section></div>
 <div class="modal hidden" id="modal" role="dialog" aria-modal="true" aria-label="Dettagli anime"><div class="dialog"><button id="closeModal" class="close" aria-label="Chiudi">×</button><div id="modalContent"></div></div></div>
 <script>
 'use strict';
@@ -53,13 +83,47 @@ const API='https://api.tenrai.org/v1';
 const $=id=>document.getElementById(id);
 const fallbackGenres=[{mal_id:1,name:'Action'},{mal_id:2,name:'Adventure'},{mal_id:4,name:'Comedy'},{mal_id:8,name:'Drama'},{mal_id:10,name:'Fantasy'},{mal_id:14,name:'Horror'},{mal_id:7,name:'Mystery'},{mal_id:22,name:'Romance'},{mal_id:24,name:'Sci-Fi'},{mal_id:36,name:'Slice of Life'},{mal_id:30,name:'Sports'},{mal_id:37,name:'Supernatural'},{mal_id:41,name:'Suspense'}];
 let page=1,hasNext=false,activeController=null,animeMap=new Map();
+let searchRun=0;const seriesCache=new Map();
+let groupedDataset=null; const GROUP_PAGE_SIZE=24, GROUP_SOURCE_LIMIT=100, ANILIST_BATCH_SIZE=25;
+const SETTINGS_KEY='animeExplorerSettingsV8';
+function readSettings(){try{const x=JSON.parse(localStorage.getItem(SETTINGS_KEY)||'{}');return {source:x.source==='mal'?'mal':'anilist',concurrency:[1,2,3].includes(Number(x.concurrency))?Number(x.concurrency):3,progressive:x.progressive!==false,preloadPages:[5,10,15,20].includes(Number(x.preloadPages))?Number(x.preloadPages):20}}catch{return {source:'anilist',concurrency:3,progressive:true,preloadPages:20}}}
+let appSettings=readSettings();
+function showSkeleton(count=8){const frag=document.createDocumentFragment();for(let i=0;i<count;i++){const card=el('article','anime skeleton-card');card.setAttribute('aria-hidden','true');card.innerHTML='<div class="skeleton-block skeleton-cover"></div><div class="skeleton-body"><div class="skeleton-block skeleton-line"></div><div class="skeleton-block skeleton-line short"></div><div class="skeleton-block skeleton-line"></div><div class="skeleton-block skeleton-line short"></div></div>';frag.append(card)}$('results').replaceChildren(frag)}
+function showSettings(){const x=readSettings();$('sourceSetting').value=x.source;$('concurrencySetting').value=String(x.concurrency);$('progressiveSetting').checked=x.progressive;$('preloadPagesSetting').value=String(x.preloadPages);$('settingsModal').classList.remove('hidden')}
+function closeSettings(){$('settingsModal').classList.add('hidden')}
+
 const opts={method:'GET',headers:{Accept:'application/json'}};
 function notice(message){$('notice').textContent=message||'';$('notice').classList.toggle('hidden',!message)}
 function setBusy(busy){$('searchButton').disabled=busy;$('searchButton').textContent=busy?'Caricamento…':'Cerca anime';$('prev').disabled=busy||page<=1;$('next').disabled=busy||!hasNext}
 function genreBox(target,data){const root=$(target);root.replaceChildren();data.forEach(g=>{const label=document.createElement('label');label.className='genre';const checkbox=document.createElement('input');checkbox.type='checkbox';checkbox.value=g.mal_id;checkbox.name=target;label.append(checkbox,document.createTextNode(g.name));root.append(label)})}
 async function loadGenres(){try{const r=await fetch(API+'/genres/anime',opts);if(!r.ok)throw Error('HTTP '+r.status);const json=await r.json();const gs=(json.data||[]).filter(g=>g.mal_id&&g.name).sort((a,b)=>a.name.localeCompare(b.name));genreBox('genres',gs);genreBox('excludedGenres',gs)}catch{genreBox('genres',fallbackGenres);genreBox('excludedGenres',fallbackGenres);notice('Elenco completo dei generi non disponibile: mostrati i generi principali. La ricerca può comunque funzionare.')}}
 function selected(name){return [...document.querySelectorAll('input[name="'+name+'"]:checked')].map(e=>e.value)}
-function readFilters(){const p=new URLSearchParams();const set=(id,key=id)=>{const v=$(id).value.trim();if(v)p.set(key,v)};set('query','q');set('type');set('status');set('minScore','min_score');set('maxScore','max_score');set('yearFrom','start_date');set('yearTo','end_date');if(p.has('start_date'))p.set('start_date',p.get('start_date')+'-01-01');if(p.has('end_date'))p.set('end_date',p.get('end_date')+'-12-31');const inc=selected('genres'),exc=selected('excludedGenres');if(inc.length)p.set('genres',inc.join(','));if(exc.length)p.set('genres_exclude',exc.join(','));p.set('order_by',$('order').value);p.set('sort',$('sort').value);p.set('sfw',$('sfw').checked?'true':'false');p.set('limit','24');return p}
+function readFilters(){const p=new URLSearchParams();const set=(id,key=id)=>{const v=$(id).value.trim();if(v)p.set(key,v)};set('query','q');set('type');set('status');set('minScore','min_score');set('maxScore','max_score');set('yearFrom','start_date');set('yearTo','end_date');if(p.has('start_date'))p.set('start_date',p.get('start_date')+'-01-01');if(p.has('end_date'))p.set('end_date',p.get('end_date')+'-12-31');const genreToMal=Object.fromEntries(Object.entries(AL_GENRE_MAL).map(([id,name])=>[name,id]));const cv=x=>appSettings.source==='mal'?(genreToMal[x]||x):x;const inc=selected('genres').map(cv),exc=selected('excludedGenres').map(cv);if(inc.length)p.set('genres',inc.join(','));if(exc.length)p.set('genres_exclude',exc.join(','));p.set('order_by',$('order').value);p.set('sort',$('sort').value);p.set('sfw',$('sfw').checked?'true':'false');p.set('limit','24');return p}
+// Badge: conta i filtri modificati rispetto ai valori iniziali. La ricerca per titolo non è un filtro.
+function activeFilterCount(){
+  let n=0;
+  for(const id of ['type','status','maxScore','yearFrom','yearTo'])if($(id).value.trim())n++;
+  if($('minScore').value.trim()!=='8')n++;
+  if($('order').value!=='score')n++;
+  if($('sort').value!=='desc')n++;
+  if(!$('sfw').checked)n++;
+  if($('groupAnime').checked)n++;
+  n+=selected('genres').length+selected('excludedGenres').length;
+  return n;
+}
+function updateFilterBadges(){
+ const count=activeFilterCount();
+ for(const id of ['mobileFilterCount','desktopFilterCount']){
+   const badge=$(id);badge.textContent=String(count);badge.hidden=count===0;
+ }
+ $('toggleFilters').setAttribute('aria-label',count?'Filtri: '+count+' attivi':'Apri filtri');
+}
+document.addEventListener('change',e=>{
+ if(e.target.closest('#searchForm')||e.target.id==='groupAnime')updateFilterBadges();
+});
+document.addEventListener('input',e=>{
+ if(e.target.closest('#searchForm'))updateFilterBadges();
+});
 function validate(){const a=$('minScore').value,b=$('maxScore').value;if(a!==''&&b!==''&&Number(a)>Number(b))return 'Il voto minimo non può superare quello massimo.';const y1=$('yearFrom').value,y2=$('yearTo').value;if(y1&&y2&&Number(y1)>Number(y2))return 'L’anno iniziale non può superare quello finale.';if(selected('genres').some(id=>selected('excludedGenres').includes(id)))return 'Un genere non può essere contemporaneamente incluso ed escluso.';return ''}
 const fallbackImg='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="400"><rect width="100%" height="100%" fill="#24324d"/><text x="50%" y="50%" text-anchor="middle" fill="#bdc9e6" font-family="sans-serif" font-size="20">Nessuna immagine</text></svg>');
 const el=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=String(text);return e};
@@ -76,14 +140,32 @@ function animeUnitySearchUrl(a){
   return 'https://www.google.com/search?'+new URLSearchParams({q:query});
 }
 function animeUnityLink(a,detail=false){
-  const link=el('a',detail?'btn ghost':'','Cerca AnimeUnity ↗');
+  const link=el('a','btn primary-stream','▶ AnimeUnity ↗');
   link.href=animeUnitySearchUrl(a);
   link.target='_blank';link.rel='noopener noreferrer';
   if(detail)link.style='display:inline-block;text-decoration:none;margin:9px 0 0 9px';
   link.title='Ricerca Google: titolo dell’anime + inurl:animeunity, senza dominio fisso';
   return link;
 }
-function renderCard(a){const article=el('article','anime'),poster=el('img','poster');poster.loading='lazy';poster.alt='Copertina di '+(a.title||'anime');poster.src=a.images?.jpg?.large_image_url||a.images?.jpg?.image_url||fallbackImg;poster.onerror=()=>{poster.onerror=null;poster.src=fallbackImg};article.append(poster);const body=el('div','anime-body');body.append(el('h3','',a.title_english||a.title||'Titolo non disponibile'));const meta=el('div','meta');meta.append(el('span','score',a.score?'★ '+a.score.toFixed(2):'★ N/D'),el('span','',[(a.type||'N/D'),a.year||a.aired?.from?.slice(0,4)||''].filter(Boolean).join(' · ')));body.append(meta);body.append(el('div','tags'));const tags=body.querySelector('.tags');(a.genres||[]).slice(0,3).forEach(g=>tags.append(el('span','tag',g.name)));body.append(el('p','synopsis',a.synopsis||'Trama non disponibile.'));const more=el('div','more');const details=el('button','btn ghost','Dettagli');details.type='button';details.style='font-size:.78rem;padding:7px 10px';details.addEventListener('click',()=>showModal(a));const link=el('a','','Su MAL ↗');link.href=a.url||'https://myanimelist.net/';link.target='_blank';link.rel='noopener noreferrer';more.append(details,link,animeUnityLink(a));body.append(more);article.append(body);return article}
+function appendExpandableSynopsis(parent,description,detail=false){
+  const text=description||'Trama non disponibile.';
+  const wrap=el('div','synopsis-wrap');
+  const para=el('p',detail?'detail-synopsis':'synopsis',text);
+  wrap.append(para);
+  // Non mostrare un comando inutile per descrizioni molto brevi.
+  if(text.trim().length>105){
+    const toggle=el('button','read-more','Altro…');toggle.type='button';
+    toggle.setAttribute('aria-expanded','false');
+    toggle.addEventListener('click',()=>{
+      const expanded=para.classList.toggle('expanded');
+      toggle.textContent=expanded?'Mostra meno':'Altro…';
+      toggle.setAttribute('aria-expanded',String(expanded));
+    });
+    wrap.append(toggle);
+  }
+  parent.append(wrap);
+}
+function renderCard(a){const article=el('article','anime'),poster=el('img','poster');poster.loading='lazy';poster.alt='Copertina di '+(a.title||'anime');poster.src=a.images?.jpg?.large_image_url||a.images?.jpg?.image_url||fallbackImg;poster.onerror=()=>{poster.onerror=null;poster.src=fallbackImg};article.append(poster);const body=el('div','anime-body');body.append(el('h3','',a.title_english||a.title||'Titolo non disponibile'));const meta=el('div','meta');meta.append(el('span','score',a.score?'★ '+a.score.toFixed(2):'★ N/D'),el('span','',[(a.type||'N/D'),a.year||a.aired?.from?.slice(0,4)||''].filter(Boolean).join(' · ')));body.append(meta);body.append(el('div','tags'));const tags=body.querySelector('.tags');(a.genres||[]).slice(0,3).forEach(g=>tags.append(el('span','tag',g.name)));appendExpandableSynopsis(body,a.synopsis);const more=el('div','more');const details=el('button','btn ghost','Dettagli');details.type='button';details.style='font-size:.78rem;padding:7px 10px';details.addEventListener('click',()=>showModal(a));more.append(animeUnityLink(a),details);body.append(more);article.append(body);return article}
 let detailRun=0;
 const detailCache=new Map();
 async function getDetail(path){
@@ -99,65 +181,129 @@ function detailSection(parent,name,intro=''){
 function externalBtn(text,url,cls='btn ghost'){
   const a=el('a',cls,text);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a;
 }
+function malAnimeUrl(anime){
+  const id=Number(anime?.mal_id);
+  return Number.isInteger(id)&&id>0?'https://myanimelist.net/anime/'+id:null;
+}
+function aniListAnimeUrl(anime){
+  const id=Number(anime?.anilist_id);
+  return Number.isInteger(id)&&id>0?'https://anilist.co/anime/'+id:null;
+}
+function animeSourceLinks(anime,small=true){
+  const links=el('div',small?'source-links compact':'source-links');
+  const mal=malAnimeUrl(anime),ani=aniListAnimeUrl(anime);
+  if(mal)links.append(externalBtn('MAL ↗',mal,'btn ghost mini-button'));
+  if(ani)links.append(externalBtn('AniList ↗',ani,'btn ghost mini-button'));
+  return links;
+}
+function episodeMalUrl(ep,season){
+  // Prefer the source-provided episode URL, never guess an episode route.
+  if(typeof ep?.url==='string'){
+    try{const u=new URL(ep.url);if(u.protocol==='https:'&&/^(?:www\.)?myanimelist\.net$/i.test(u.hostname))return u.href}catch{}
+  }
+  const base=malAnimeUrl(season);
+  return base?base+'/episode':null;
+}
 function sectionMessage(section,message){section.append(el('p','detail-note',message))}
 function seasonSort(a,b){return (Date.parse(a.aired?.from||'')||0)-(Date.parse(b.aired?.from||'')||0)}
-async function relationsLoad(a,section,run){
-  sectionMessage(section,'Ricerca delle stagioni collegate…');
-  const seen=new Map([[a.mal_id,{...a,_relation:'Selezionata'}]]);
-  const queue=[a.mal_id];let count=0;
+// AniList: dettagli delle schede collegate, con cache per dispositivo e sessione.
+const relationDetailCache=new Map();
+const AL_REL_DETAILS=`query($ids:[Int]) { Page(page:1,perPage:50) {media(type:ANIME,idMal_in:$ids){id idMal title{romaji english native} description(asHtml:false) coverImage{large extraLarge} format status seasonYear startDate{year month day} episodes averageScore popularity favourites genres isAdult relations{edges{relationType node{id idMal type format title{romaji english} averageScore seasonYear startDate{year month day}}}}}}}`;
+async function alRelationDetails(ids){
+ const valid=[...new Set(ids.map(Number).filter(id=>id>0))];
+ const out=new Map();const missing=valid.filter(id=>!relationDetailCache.has(id));
+ for(const id of valid)if(relationDetailCache.has(id))out.set(id,relationDetailCache.get(id));
+ for(let n=0;n<missing.length;n+=25){
+  const subset=missing.slice(n,n+25);
   try{
-    while(queue.length&&count<13){
-      const id=queue.shift();count++;
-      let json;try{json=await getDetail('/anime/'+id+'/relations')}catch{continue}
-      for(const rel of json.data||[]){
-        if(!/^(prequel|sequel)$/i.test(rel.relation||''))continue;
-        for(const entry of rel.entry||[]){
-          if(entry.type!=='anime'||!entry.mal_id||seen.has(entry.mal_id))continue;
-          seen.set(entry.mal_id,{mal_id:entry.mal_id,title:entry.name,_relation:rel.relation});
-          if(queue.length+count<14)queue.push(entry.mal_id);
-        }
-      }
-    }
-    const related=[...seen.values()];
-    // Richieste sequenziali per evitare picchi sul limite pubblico Tenrai.
-    for(const item of related){
-      if(item.mal_id===a.mal_id)continue;
-      try{const result=await getDetail('/anime/'+item.mal_id);Object.assign(item,result.data||{})}catch{}
-    }
-    if(run!==detailRun)return;
-    section.replaceChildren(el('h3','','Stagioni e parti collegate'));
-    sectionMessage(section,'Collegamenti prequel/sequel di MyAnimeList, non necessariamente una raccolta completa. Film e spin-off non vengono automaticamente inclusi.');const seriesActions=el('div','detail-controls');seriesActions.append(externalBtn('Cerca streaming della serie ↗',animeUnitySearchUrl({title:(a.title_english||a.title||'').replace(/\b(?:season|stagione)\s*\d+\b/gi,'').trim()}),'btn ghost mini-button'));section.append(seriesActions);
-    const list=el('div','detail-list');related.sort(seasonSort).forEach(item=>{
-      const row=el('div','detail-item');const info=el('div','description');info.append(el('strong','',item.title_english||item.title||'Anime '+item.mal_id));
-      info.append(el('small','',[(item.year||item.aired?.from?.slice(0,4)||''),item.type||'',item.score?'★ '+Number(item.score).toFixed(2):'voto N/D'].filter(Boolean).join(' · ')));
-      const button=el('button','btn ghost mini-button',item.mal_id===a.mal_id?'Attuale':'Apri');button.disabled=item.mal_id===a.mal_id;
-      button.addEventListener('click',()=>showModal(item));row.append(info,button);list.append(row);
-    });section.append(list);
-    if(count>=13)sectionMessage(section,'Esplorazione limitata a 13 schede collegate per rispettare l’API.');
-  }catch(err){if(run===detailRun){section.replaceChildren(el('h3','','Stagioni e parti collegate'));sectionMessage(section,'Stagioni non disponibili: '+err.message)}}
+   const response=await fetch('https://graphql.anilist.co',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:AL_REL_DETAILS,variables:{ids:subset}})});
+   if(!response.ok)throw Error('AniList HTTP '+response.status);
+   const data=await response.json();if(data.errors?.length)throw Error(data.errors[0].message);
+   for(const m of data.data?.Page?.media||[]){if(!m?.idMal)continue;const anime=toAlAnime(m);relationDetailCache.set(Number(m.idMal),anime);out.set(Number(m.idMal),anime)}
+  }catch(err){console.warn('Dettagli AniList non recuperati:',err.message)}
+ }
+ return out;
 }
-async function episodesLoad(a,section,run){
-  let current=1;const holder=el('div');section.append(holder);
-  async function load(p){
-    current=p;holder.replaceChildren(el('p','detail-note','Caricamento episodi…'));
+async function relationsLoad(a,section,run,groupedSeries=null){
+ sectionMessage(section,'Caricamento informazioni delle stagioni…');
+ const related=new Map();
+ const add=(anime)=>{if(anime?.mal_id)related.set(anime.mal_id,anime)};
+ add(a);
+ // Se si apre una serie raggruppata, le stagioni sono già nel catalogo:
+ // niente crawling sequenziale e niente richieste Tenrai per i loro voti.
+ for(const item of groupedSeries?.episodes||[])add(item);
+ if(!groupedSeries){
+  // Una sola interrogazione AniList per la prima cerchia di prequel/sequel.
+  try{
+   const query=`query($id:Int){Media(idMal:$id,type:ANIME){id idMal title{romaji english} averageScore seasonYear startDate{year month day} relations{edges{relationType node{id idMal type format title{romaji english} averageScore seasonYear startDate{year month day}}}}}}`;
+   const response=await fetch('https://graphql.anilist.co',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query,variables:{id:a.mal_id}})});
+   if(response.ok){const data=await response.json();for(const e of data.data?.Media?.relations?.edges||[]){if(!['PREQUEL','SEQUEL'].includes(e.relationType)||!e.node?.idMal)continue;const n=e.node;add({mal_id:n.idMal,anilist_id:n.id,title:n.title?.romaji||n.title?.english||'Anime',title_english:n.title?.english,score:n.averageScore?n.averageScore/10:null,year:n.seasonYear||n.startDate?.year,type:n.format,aired:{from:n.startDate?.year?String(n.startDate.year):null}})}}
+  }catch(err){console.warn('Relazioni AniList:',err.message)}
+ }
+ if(run!==detailRun)return;
+ // Arricchimento batch solo se almeno un anno o voto è assente.
+ const incomplete=[...related.values()].filter(x=>x.mal_id>0&&(!x.year||!x.score||!x.anilist_id));
+ if(incomplete.length){
+  const enriched=await alRelationDetails(incomplete.map(x=>x.mal_id));
+  if(run!==detailRun)return;
+  for(const [id,full] of enriched){const old=related.get(id);if(old)related.set(id,{...old,...full})}
+ }
+ if(run!==detailRun)return;
+ section.replaceChildren(el('h3','','Stagioni e parti collegate'));
+ sectionMessage(section,'Voti AniList su 10; i dati mancanti sono indicati come N/D. Sono inclusi i collegamenti identificati nel campione e nei prequel/sequel.');
+ const seriesActions=el('div','detail-controls');seriesActions.append(externalBtn('Cerca streaming della serie ↗',animeUnitySearchUrl({title:(a.title_english||a.title||'').replace(/\b(?:season|stagione)\s*\d+\b/gi,'').trim()}),'btn ghost mini-button'));section.append(seriesActions);
+ const list=el('div','detail-list');
+ [...related.values()].sort(seasonSort).forEach(item=>{
+  const row=el('div','detail-item'),info=el('div','description');info.append(el('strong','',item.title_english||item.title||'Anime '+item.mal_id));
+  info.append(el('small','',[(item.year||item.aired?.from?.slice(0,4)||'Anno N/D'),item.type||'',item.score?'★ '+Number(item.score).toFixed(2)+'/10':'Voto N/D'].filter(Boolean).join(' · ')));
+  const controls=el('div','season-links');controls.append(animeSourceLinks(item));const button=el('button','btn ghost mini-button',item.mal_id===a.mal_id?'Attuale':'Apri');button.disabled=item.mal_id===a.mal_id;button.addEventListener('click',()=>showModal(item));controls.append(button);row.append(info,controls);list.append(row);
+ });section.append(list);
+}
+async function episodesLoad(a,section,run,groupedSeries=null){
+  const entries=groupedSeries?.episodes?.length>1
+    ? [...new Map(groupedSeries.episodes.filter(x=>x.mal_id).map(x=>[x.mal_id,x])).values()].sort(seasonSort)
+    : [a];
+  sectionMessage(section,entries.length>1
+    ? 'Episodi divisi per stagione o film. Puoi chiudere le sezioni che non ti interessano; sono inizialmente tutte aperte.'
+    : 'Gli episodi sono mostrati per questa scheda anime.');
+  const jobs=[];
+  for(const season of entries){
+    const box=el('details','season-accordion');box.open=true;
+    const summary=el('summary');const heading=el('span');
+    heading.append(el('strong','',season.title_english||season.title||'Stagione / show'));
+    const description=[season.type||'',season.year||season.aired?.from?.slice(0,4)||'',season.episodes?season.episodes+' episodi':'',season.score?'★ '+Number(season.score).toFixed(2):'Voto N/D'].filter(Boolean).join(' · ');
+    heading.append(el('small','',description));summary.append(heading);box.append(summary);const seasonLinks=animeSourceLinks(season);if(seasonLinks.childElementCount)box.append(seasonLinks);
+    const body=el('div','season-accordion-content');body.append(el('p','detail-note','Caricamento episodi…'));box.append(body);section.append(box);
+    jobs.push({season,body});
+  }
+  async function loadPage(season,holder,p){
+    holder.replaceChildren(el('p','detail-note','Caricamento episodi…'));
     try{
-      const response=await getDetail('/anime/'+a.mal_id+'/episodes?page='+p);
+      const result=await getDetail('/anime/'+season.mal_id+'/episodes?page='+p);
       if(run!==detailRun)return;
-      holder.replaceChildren();const rows=response.data||[];
-      if(!rows.length){sectionMessage(holder,'Nessun episodio disponibile per questa stagione.');return}
-      const list=el('div','detail-list');for(const ep of rows){
-        const row=el('div','detail-item');const info=el('div','description');
+      holder.replaceChildren();const rows=result.data||[];
+      if(!rows.length){sectionMessage(holder,'Nessun episodio disponibile per questa scheda.');return}
+      const list=el('div','detail-list');
+      for(const ep of rows){
+        const row=el('div','detail-item'),info=el('div','description');
         info.append(el('strong','','Ep. '+(ep.mal_id??'?')+' — '+(ep.title||ep.title_romanji||'Titolo non disponibile')));
         info.append(el('small','',ep.aired?'Uscita: '+new Date(ep.aired).toLocaleDateString('it-IT'):'Data non disponibile'));
-        if(typeof ep.score==='number')info.append(el('div','ep-score','★ '+ep.score.toFixed(2)));else info.append(el('div','detail-note','Voto episodio non disponibile'));
-        const actions=el('div');actions.append(externalBtn('Streaming ↗',animeUnitySearchUrl({title:(a.title_english||a.title||'')+' episodio '+(ep.mal_id||'')}),'btn ghost mini-button'));
-        row.append(info,actions);list.append(row);
-      }holder.append(list);
-      const nav=el('div','detail-controls');const prev=el('button','btn ghost mini-button','← Precedenti');prev.disabled=p<=1;prev.onclick=()=>load(p-1);
-      const next=el('button','btn ghost mini-button','Successivi →');next.disabled=!response.pagination?.has_next_page;next.onclick=()=>load(p+1);
+        info.append(typeof ep.score==='number'?el('div','ep-score','★ '+ep.score.toFixed(2)+'/5'):el('div','detail-note','Voto episodio N/D'));
+        const malLink=episodeMalUrl(ep,season);if(malLink)row.append(info,externalBtn('MAL ↗',malLink,'btn ghost mini-button'));else row.append(info);list.append(row);
+      }
+      holder.append(list);
+      const nav=el('div','detail-controls');
+      const prev=el('button','btn ghost mini-button','← Precedenti');prev.disabled=p<=1;prev.onclick=()=>loadPage(season,holder,p-1);
+      const next=el('button','btn ghost mini-button','Successivi →');next.disabled=!result.pagination?.has_next_page;next.onclick=()=>loadPage(season,holder,p+1);
       nav.append(prev,el('span','detail-note','Pagina '+p),next);holder.append(nav);
     }catch(err){if(run===detailRun)holder.replaceChildren(el('p','detail-note','Episodi non disponibili: '+err.message))}
-  }load(1);
+  }
+  // Request pacing: stay below public API's per-second cap and avoid a large burst.
+  for(const job of jobs){
+    if(run!==detailRun)return;
+    await loadPage(job.season,job.body,1);
+    if(jobs.length>1)await new Promise(resolve=>setTimeout(resolve,350));
+  }
 }
 async function streamingLoad(a,section,run){
   sectionMessage(section,'Caricamento piattaforme…');
@@ -184,29 +330,510 @@ async function recommendationsLoad(a,section,run){
     }section.append(list);
   }catch(err){if(run===detailRun){section.replaceChildren(el('h3','','Anime consigliati'));sectionMessage(section,'Consigliati non disponibili: '+err.message)}}
 }
-function showModal(a){
+function showModal(a,groupedSeries=null){
   if(!a||!a.mal_id)return;
   const run=++detailRun,c=$('modalContent');c.replaceChildren();
+  if(a.mal_id<0){c.append(el('p','detail-note','Questo anime non ha un ID MyAnimeList collegato. I dettagli Tenrai non sono disponibili.'));const aniUrl=aniListAnimeUrl(a);if(aniUrl)c.append(externalBtn('Apri AniList ↗',aniUrl));$('modal').classList.remove('hidden');return}
   const layout=el('div','dialog-layout'),img=el('img');img.src=a.images?.jpg?.large_image_url||a.images?.jpg?.image_url||fallbackImg;img.alt='Copertina';
   const info=el('div');info.append(el('h2','',a.title_english||a.title||'Anime'));
-  const meta=el('div','meta');meta.append(el('span','score',a.score?'★ '+Number(a.score).toFixed(2):'Voto N/D'),el('span','',a.type||''),el('span','',a.episodes?a.episodes+' episodi':'Episodi N/D'),el('span','',a.status||''));
-  info.append(meta,el('p','',a.synopsis||'Trama non disponibile.'));
+  const meta=el('div','meta');meta.append(el('span','score',(a.score?'★ '+Number(a.score).toFixed(2):'Voto N/D')+' · '+(a._malSource?'MAL':'AniList')),el('span','',a.type||''),el('span','',a.episodes?a.episodes+' episodi':'Episodi N/D'),el('span','',a.status||''));
+  info.append(meta);
+  const malComparison=el('div','mal-comparison detail-note','Voto MyAnimeList: caricamento…');info.append(malComparison);
+  (async()=>{try{
+    const ids=(groupedSeries?.episodes||[a]).filter(x=>Number(x.mal_id)>0).slice(0,12);
+    if(!ids.length){malComparison.textContent='Voto MAL non disponibile (ID mancante).';return}
+    const found=[];
+    for(const item of ids){const key=Number(item.mal_id);let score=Number(item._malScore)||0;
+      if(!score){try{const detail=await getDetail('/anime/'+key);score=Number(detail.data?.score)||0;item._malScore=score}catch{}}
+      if(score>0)found.push(score)
+    }
+    if(run!==detailRun)return;
+    const avg=found.length?found.reduce((x,y)=>x+y,0)/found.length:null;
+    malComparison.textContent=avg===null?'Voto MAL: N/D':groupedSeries?'Voto MAL (media semplice): ★ '+avg.toFixed(2)+'/10 · '+found.length+'/'+ids.length+' schede con voto'+(groupedSeries.episodes.length>12?' · campione parziale':''):'Voto MAL: ★ '+avg.toFixed(2)+'/10';
+  }catch{if(run===detailRun)malComparison.textContent='Voto MAL temporaneamente non disponibile'}})();
+  appendExpandableSynopsis(info,a.synopsis,true);
   info.append(el('p','small','Generi: '+(a.genres||[]).map(x=>x.name).join(', ')));
-  const actions=el('div','detail-toolbar');actions.append(externalBtn('MyAnimeList ↗',a.url||'https://myanimelist.net/anime/'+a.mal_id),animeUnityLink(a,true));info.append(actions);
+  const actions=el('div','detail-toolbar');actions.append(animeSourceLinks(a,false),animeUnityLink(a,true));if(groupedSeries)actions.append(el('span','detail-note','Link alla stagione mostrata'));info.append(actions);
   layout.append(img,info);c.append(layout);
   const relations=detailSection(c,'Stagioni e parti collegate');
-  const episodes=detailSection(c,'Episodi e voti','I voti degli episodi sono mostrati soltanto se presenti nei dati dell’API. Il tasto streaming effettua una ricerca Google riferita al singolo episodio.');
+  const episodes=detailSection(c,'Episodi e voti','I voti degli episodi provengono da MyAnimeList tramite Tenrai: sono valutazioni su 5 stelle, diverse dal voto AniList della stagione su 10.');
   const streaming=detailSection(c,'Dove guardarlo');
   const recommendations=detailSection(c,'Anime consigliati');
   $('modal').classList.remove('hidden');$('modal').querySelector('.dialog').scrollTop=0;$('closeModal').focus();
-  relationsLoad(a,relations,run);episodesLoad(a,episodes,run);streamingLoad(a,streaming,run);recommendationsLoad(a,recommendations,run);
+  const sections=[relations,episodes,streaming,recommendations];const labels=['Stagioni','Episodi','Streaming','Consigliati'];const loaders=[(anime,section,run)=>relationsLoad(anime,section,run,groupedSeries),(anime,section,run)=>episodesLoad(anime,section,run,groupedSeries),streamingLoad,recommendationsLoad];
+  const nav=el('nav','detail-nav');nav.setAttribute('aria-label','Sezioni dettagli anime');
+  sections.forEach((section,i)=>{section.classList.add('hidden');const b=el('button','btn ghost detail-nav-button',labels[i]);b.type='button';b.onclick=()=>{sections.forEach((sec,j)=>{sec.classList.toggle('hidden',j!==i);nav.children[j].classList.toggle('active',j===i)});if(!section.dataset.loaded){section.dataset.loaded='1';loaders[i](a,section,run)};section.scrollIntoView({block:'nearest',behavior:'smooth'})};nav.append(b)});
+  c.insertBefore(nav,relations);nav.firstChild.click();
 }
 function closeModal(){detailRun++;$('modal').classList.add('hidden')}
-async function search(newPage=1){const error=validate();if(error){notice(error);return}page=newPage;hasNext=false;if(activeController)activeController.abort();activeController=new AbortController();const controller=activeController;setBusy(true);notice('');$('empty').classList.add('hidden');$('pager').classList.add('hidden');$('results').replaceChildren();$('resultTitle').textContent='Ricerca in corso…';$('resultCount').textContent='Caricamento dei risultati';const p=readFilters();p.set('page',String(page));const url=API+'/anime?'+p.toString();try{const r=await fetch(url,{...opts,signal:controller.signal});if(!r.ok){if(r.status===429)throw Error('Troppe richieste all’API (limite temporaneo). Riprova tra qualche secondo.');throw Error('Errore API HTTP '+r.status+'. Riprova più tardi.')};const json=await r.json();const rows=json.data||[];hasNext=!!json.pagination?.has_next_page;animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.forEach(a=>frag.append(renderCard(a)));$('results').append(frag);$('resultTitle').textContent='Risultati anime';const total=json.pagination?.items?.total;$('resultCount').textContent=(typeof total==='number'?total.toLocaleString('it-IT')+' risultati':'Risultati disponibili')+' · Pagina '+page;if(!rows.length){$('empty').textContent='Nessun anime corrisponde ai filtri. Prova ad allargare la ricerca.';$('empty').classList.remove('hidden')}if(rows.length){$('pager').classList.remove('hidden');$('pageLabel').textContent='Pagina '+page}history.replaceState(null,'',location.pathname+location.search.split('?')[0]+'#'+encodeURIComponent(p.toString()));}catch(e){if(e.name==='AbortError')return;$('resultTitle').textContent='Ricerca non riuscita';$('resultCount').textContent='Controlla la connessione o riprova';notice(e instanceof TypeError?'Impossibile contattare Tenrai. Potrebbe trattarsi di un blocco del browser, rete o indisponibilità temporanea del servizio. Prova il test API qui sotto.':e.message);$('empty').textContent='Impossibile caricare i risultati.';$('empty').classList.remove('hidden')}finally{if(activeController===controller)setBusy(false)}}
-function reset(){if(activeController)activeController.abort();$('searchForm').reset();$('minScore').value='8';document.querySelectorAll('.genrelist input').forEach(i=>i.checked=false);page=1;hasNext=false;notice('');$('resultTitle').textContent='Anime consigliati';$('resultCount').textContent='Imposta i filtri oppure avvia la ricerca';$('results').replaceChildren();$('pager').classList.add('hidden');$('empty').textContent='Premi “Cerca anime” per visualizzare i risultati.';$('empty').classList.remove('hidden');setBusy(false);history.replaceState(null,'',location.pathname+location.search)}
-$('searchForm').addEventListener('submit',e=>{e.preventDefault();search(1)});$('resetButton').addEventListener('click',reset);$('prev').addEventListener('click',()=>{if(page>1){search(page-1);scrollTo({top:0,behavior:'smooth'})}});$('next').addEventListener('click',()=>{if(hasNext){search(page+1);scrollTo({top:0,behavior:'smooth'})}});$('closeModal').addEventListener('click',closeModal);$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closeModal()});addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});$('copyButton').addEventListener('click',async()=>{const p=readFilters();p.set('page',String(page));const link=location.href.split('#')[0]+'#'+encodeURIComponent(p.toString());try{await navigator.clipboard.writeText(link);$('copyButton').textContent='Copiato!'}catch{$('copyButton').textContent='Copia non disponibile'}setTimeout(()=>$('copyButton').textContent='Copia link ricerca',2000)});
 
-(async()=>{await loadGenres();const raw=location.hash.slice(1);if(raw){try{const p=new URLSearchParams(decodeURIComponent(raw));const map={q:'query',type:'type',status:'status',min_score:'minScore',max_score:'maxScore',order_by:'order',sort:'sort'};for(const [param,id] of Object.entries(map)){if(p.has(param))$(id).value=p.get(param)}if(p.has('start_date'))$('yearFrom').value=p.get('start_date').slice(0,4);if(p.has('end_date'))$('yearTo').value=p.get('end_date').slice(0,4);if(p.has('sfw'))$('sfw').checked=p.get('sfw')==='true';for(const [param,name] of [['genres','genres'],['genres_exclude','excludedGenres']]){const chosen=(p.get(param)||'').split(',');document.querySelectorAll('input[name="'+name+'"]').forEach(i=>i.checked=chosen.includes(i.value))}search(Math.max(1,Number(p.get('page'))||1));return}catch{}}search(1)})();
+const seriesRelations=new Map();
+async function relatedIds(id){
+  if(seriesRelations.has(id))return seriesRelations.get(id);
+  try{const r=await getDetail('/anime/'+id+'/relations');const ids=[];
+    for(const rel of r.data||[]){if(!/^(prequel|sequel)$/i.test(rel.relation||''))continue;
+      for(const entry of rel.entry||[]){if(String(entry.type).toLowerCase()==='anime'&&Number(entry.mal_id)>0)ids.push(Number(entry.mal_id))}}
+    const distinct=[...new Set(ids)];seriesRelations.set(id,distinct);return distinct;
+  }catch{return []}
+}
+async function collectSeries(seed,run,globalBudget){
+  const ids=new Set([seed.mal_id]),queue=[seed.mal_id];let truncated=false;
+  while(queue.length){
+    if(run!==searchRun)return null;
+    if(ids.size>=12||globalBudget.count>=56){truncated=true;break}
+    const id=queue.shift();globalBudget.count++;
+    const next=await relatedIds(id);
+    for(const n of next){if(ids.size>=12){truncated=true;break}if(!ids.has(n)){ids.add(n);queue.push(n)}}
+  }
+  const episodes=[seed];for(const id of ids){if(run!==searchRun)return null;if(id===seed.mal_id)continue;
+    if(globalBudget.count>=56){truncated=true;break}
+    globalBudget.count++;
+    try{const x=await getDetail('/anime/'+id);if(x.data)episodes.push(x.data)}catch{truncated=true}
+  }
+  episodes.sort(seasonSort);
+  return {ids,episodes,truncated};
+}
+function renderSeriesCard(series){
+  const scored=series.episodes.filter(a=>Number.isFinite(Number(a.score))&&Number(a.score)>0);
+  // Tenrai/Jikan scored_by is the number of rating users, not members.
+  const weighted=scored.filter(a=>Number(a.scored_by)>0);
+  const method=weighted.length===scored.length&&scored.length?'ponderata per votanti':'media semplice AniList';
+  const avg=weighted.length===scored.length&&scored.length
+    ?scored.reduce((sum,a)=>sum+Number(a.score)*Number(a.scored_by),0)/scored.reduce((sum,a)=>sum+Number(a.scored_by),0)
+    :scored.length?scored.reduce((sum,a)=>sum+Number(a.score),0)/scored.length:null;
+  const root=series.episodes.find(a=>a.type==='TV')||series.episodes[0]||series.seed;
+  const card=renderCard(root);card.classList.add('series-card');
+  card.querySelector('h3').textContent=root.title_english||root.title||series.seed.title;
+  card.querySelector('.score').textContent=avg!==null?'★ '+avg.toFixed(2)+' · media':'★ N/D';
+  card.querySelector('.meta span:last-child').textContent=series.episodes.length+' schede collegate';
+  const info=el('div','series-info',method+' · '+scored.length+' con voto'+(series.truncated?' · parziale':''));
+  card.querySelector('.tags').before(info);
+  const b=card.querySelector('.more button');if(b){b.textContent='Stagioni e dettagli';b.onclick=()=>showModal(root,series)}
+  return {card,score:avg};
+}
+// Normalizzazione SOLO per riconoscere titoli di una stessa opera, non per Google.
+function groupTitle(a){
+  return String(a.title||a.title_english||'').toLowerCase()
+    .normalize('NFKD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/&amp;/g,'and').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();
+}
+function relatedByFranchiseTitle(a,b){
+  const x=groupTitle(a),y=groupTitle(b);
+  if(!x||!y||x===y)return x===y&&x.length>=6;
+  const small=x.length<y.length?x:y,large=x.length<y.length?y:x;
+  // Il titolo breve deve essere un prefisso intero e distintivo, non una sottostringa.
+  // Esempio: "haikyu" e "haikyu movie the dumpster battle".
+  const first=small.split(' ')[0];
+  return small.length>=6&&first.length>=6&&large.startsWith(small+' ');
+}
+function mergeSeriesGroups(groups){
+  const parent=groups.map((_,i)=>i);
+  const find=i=>parent[i]===i?i:(parent[i]=find(parent[i]));
+  const union=(a,b)=>{a=find(a);b=find(b);if(a!==b)parent[b]=a};
+  const owner=new Map();
+  for(let i=0;i<groups.length;i++){
+    for(const id of groups[i].ids){if(owner.has(id))union(i,owner.get(id));else owner.set(id,i)}
+  }
+  // Alcuni film/parti hanno relazioni incomplete, ma condividono il titolo originale.
+  // Il fallback e' usato solo tra titoli gia' presenti fra i risultati o nelle relazioni.
+  for(let i=0;i<groups.length;i++)for(let j=i+1;j<groups.length;j++){
+    const aa=[groups[i].seed,...groups[i].episodes];
+    const bb=[groups[j].seed,...groups[j].episodes];
+    if(aa.some(a=>bb.some(b=>relatedByFranchiseTitle(a,b))))union(i,j);
+  }
+  const merged=new Map();
+  groups.forEach((g,i)=>{
+    const k=find(i);
+    if(!merged.has(k))merged.set(k,{ids:new Set(),episodes:[],seed:g.seed,truncated:false,heuristic:false});
+    const m=merged.get(k);
+    g.ids.forEach(id=>m.ids.add(id));m.episodes.push(...g.episodes);
+    m.truncated ||= g.truncated;
+  });
+  return [...merged.values()].map(g=>{
+    const dedup=new Map(g.episodes.map(a=>[a.mal_id,a]));
+    g.episodes=[...dedup.values()].sort(seasonSort);
+    return g;
+  });
+}
+async function drawGrouped(rows,run){
+  const status=$('groupStatus');status.classList.remove('hidden');
+  status.textContent='Raggruppamento delle stagioni… potrebbero servire alcune richieste aggiuntive.';
+  const seen=new Set(),groups=[],budget={count:0};
+  for(const seed of rows){
+    if(run!==searchRun)return;
+    if(seen.has(seed.mal_id))continue;
+    if(budget.count>=56){groups.push({seed,ids:new Set([seed.mal_id]),episodes:[seed],truncated:true});continue}
+    const result=await collectSeries(seed,run,budget);if(!result)return;
+    result.ids.forEach(id=>seen.add(id));groups.push({...result,seed});
+    status.textContent='Raggruppamento: '+groups.length+' gruppi esaminati · '+budget.count+' richieste aggiuntive.';
+  }
+  if(run!==searchRun)return;
+  const combined=mergeSeriesGroups(groups);
+  const ranked=combined.map(renderSeriesCard);
+  if($('order').value==='score')ranked.sort((a,b)=>($('sort').value==='desc'?-1:1)*((a.score??-1)-(b.score??-1)));
+  const container=$('results');container.replaceChildren(...ranked.map(x=>x.card));
+  status.textContent=combined.length+' opere da '+rows.length+' risultati della pagina. Gruppi uniti tramite relazioni e titoli compatibili. Le medie possono essere parziali: la ricerca non copre l’intero catalogo.';
+  $('resultTitle').textContent='Risultati per opera';
+}
+// Cache IndexedDB delle ricerche: l'app resta locale, le risposte arrivano dalla API.
+function openSearchDB(){return new Promise((resolve,reject)=>{const request=indexedDB.open('anime-explorer-search-v7',2);request.onupgradeneeded=()=>{const db=request.result;if(!db.objectStoreNames.contains('datasets'))db.createObjectStore('datasets');if(!db.objectStoreNames.contains('relations'))db.createObjectStore('relations')};request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error)})}
+async function getSearchCache(key){try{const db=await openSearchDB();return await new Promise(resolve=>{const t=db.transaction('datasets');const r=t.objectStore('datasets').get(key);r.onsuccess=()=>resolve(r.result?.expires>Date.now()?r.result.value:null);r.onerror=()=>resolve(null);t.oncomplete=()=>db.close()})}catch{return null}}
+async function putSearchCache(key,value){try{const db=await openSearchDB();await new Promise(resolve=>{const t=db.transaction('datasets','readwrite');t.objectStore('datasets').put({expires:Date.now()+6*3600e3,value},key);t.oncomplete=resolve;t.onerror=resolve});db.close()}catch{}}
+const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+// Mappatura MAL ID -> relazioni AniList conservata tra ricerche e sessioni.
+async function loadRelationCache(ids){
+  try{const db=await openSearchDB();return await new Promise(resolve=>{
+    const values=new Map(),tx=db.transaction('relations','readonly'),store=tx.objectStore('relations');
+    for(const id of ids){const req=store.get(Number(id));req.onsuccess=()=>{if(req.result?.expires>Date.now())values.set(Number(id),req.result.value)}}
+    tx.oncomplete=()=>{db.close();resolve(values)};tx.onerror=()=>{db.close();resolve(values)};
+  })}catch{return new Map()}
+}
+async function saveRelationCache(entries){
+  if(!entries.length)return;
+  try{const db=await openSearchDB();await new Promise(resolve=>{const tx=db.transaction('relations','readwrite'),store=tx.objectStore('relations');for(const [id,value] of entries)store.put({expires:Date.now()+14*86400e3,value},Number(id));tx.oncomplete=resolve;tx.onerror=resolve});db.close()}catch{}
+}
+// POST GraphQL con un batch di ID MyAnimeList, senza chiave API o backend.
+const ANILIST_QUERY=`query ($ids: [Int]) {
+  Page(page: 1, perPage: 25) {
+    media(idMal_in: $ids, type: ANIME) {
+      idMal
+      relations { edges { relationType node { idMal type } } }
+    }
+  }
+}`;
+let nextAniListSlot=0;
+async function fetchAniListBatch(ids,signal){
+  // Piccoli batch per limitare la complessità GraphQL; rallenta sui rate limit.
+  for(let attempt=0;attempt<3;attempt++){
+    const start=Math.max(Date.now(),nextAniListSlot);nextAniListSlot=start+1200;
+    if(start>Date.now())await pause(start-Date.now());
+    if(signal.aborted)throw new DOMException('Interrotto','AbortError');
+    let response;
+    try{response=await fetch('https://graphql.anilist.co',{
+      method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({query:ANILIST_QUERY,variables:{ids}}),signal
+    })}catch(error){if(signal.aborted)throw error;if(attempt===2)throw error;await pause(1600*(attempt+1));continue}
+    if(response.status===429||response.status>=500){
+      if(attempt===2)throw Error('AniList HTTP '+response.status);
+      const retry=Number(response.headers.get('Retry-After'));
+      await pause(Number.isFinite(retry)&&retry>0?Math.min(60000,retry*1000):2000*(attempt+1));continue
+    }
+    if(!response.ok)throw Error('AniList HTTP '+response.status);
+    const payload=await response.json();
+    if(payload.errors?.length)throw Error(payload.errors[0].message||'Errore GraphQL');
+    const map=new Map();
+    for(const media of payload.data?.Page?.media||[]){
+      if(!Number(media?.idMal))continue;
+      const linked=[];
+      for(const edge of media.relations?.edges||[]){
+        if(!['PREQUEL','SEQUEL'].includes(edge?.relationType))continue;
+        if(edge?.node?.type!=='ANIME'||!Number(edge?.node?.idMal))continue;
+        linked.push(Number(edge.node.idMal));
+      }
+      map.set(Number(media.idMal),[...new Set(linked)]);
+    }
+    return map;
+  }
+  return new Map();
+}
+
+async function fetchSearchPage(params,number,signal){const q=new URLSearchParams(params);q.set('page',String(number));q.set('limit',String(GROUP_SOURCE_LIMIT));for(let attempt=0;attempt<3;attempt++){const r=await fetch(API+'/anime?'+q,{...opts,signal});if(r.status===429||r.status>=500){if(attempt<2){await pause(1600*(attempt+1));continue}}if(!r.ok)throw Error('Ricerca HTTP '+r.status+' (pagina sorgente '+number+')');return r.json()}throw Error('Servizio temporaneamente non disponibile')}
+function groupSample(rows,edges){
+  const idToIndex=new Map(rows.map((a,i)=>[Number(a.mal_id),i]));const parent=rows.map((_,i)=>i);
+  function root(i){while(parent[i]!==i){parent[i]=parent[parent[i]];i=parent[i]}return i}
+  function union(i,j){i=root(i);j=root(j);if(i!==j)parent[j]=i}
+  const titleIndex=new Map();
+  for(let i=0;i<rows.length;i++){
+    const title=groupTitle(rows[i]);if(!title)continue;
+    if(titleIndex.has(title))union(i,titleIndex.get(title));else titleIndex.set(title,i);
+  }
+  // Si confrontano soltanto titoli con la stessa prima parola distintiva.
+  const buckets=new Map();
+  for(let i=0;i<rows.length;i++){const token=groupTitle(rows[i]).split(' ')[0];if(token.length<6)continue;if(!buckets.has(token))buckets.set(token,[]);buckets.get(token).push(i)}
+  for(const bucket of buckets.values()){
+    // Evita confronti quadratici su titoli eccessivamente generici.
+    if(bucket.length>80)continue;
+    for(let i=0;i<bucket.length;i++)for(let j=i+1;j<bucket.length;j++)if(relatedByFranchiseTitle(rows[bucket[i]],rows[bucket[j]]))union(bucket[i],bucket[j]);
+  }
+  for(const [id,linked] of edges)for(const other of linked){const a=idToIndex.get(Number(id)),b=idToIndex.get(Number(other));if(a!==undefined&&b!==undefined)union(a,b)}
+  const groups=new Map();for(let i=0;i<rows.length;i++){const k=root(i);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(rows[i])}
+  const order=$('order').value,direction=$('sort').value==='asc'?1:-1;
+  const results=[...groups.values()].map(episodes=>{
+    const seen=new Set(),unique=episodes.filter(a=>{if(seen.has(a.mal_id))return false;seen.add(a.mal_id);return true});
+    unique.sort(seasonSort);
+    const scored=unique.filter(a=>Number(a.score)>0),weighted=scored.every(a=>Number(a.scored_by)>0);
+    const score=!scored.length?null:weighted?scored.reduce((n,a)=>n+Number(a.score)*Number(a.scored_by),0)/scored.reduce((n,a)=>n+Number(a.scored_by),0):scored.reduce((n,a)=>n+Number(a.score),0)/scored.length;
+    const seed=unique.find(a=>a.type==='TV')||unique[0];
+    return {ids:[...seen],episodes:unique,seed,truncated:unique.length===1,score};
+  });
+  // Nell'ordinamento per popolarità il rank minore è il più popolare.
+  const metric=g=>{if(order==='score')return g.score??-1;if(order==='popularity'||order==='rank')return Math.min(...g.episodes.map(a=>Number(a[order])||99999999));if(order==='favorites'||order==='members')return Math.max(...g.episodes.map(a=>Number(a[order])||0));if(order==='start_date')return Math.min(...g.episodes.map(a=>Date.parse(a.aired?.from)||Infinity));if(order==='episodes')return g.episodes.reduce((n,a)=>n+(Number(a.episodes)||0),0);return null};
+  results.sort((a,b)=>{if(order==='title')return direction*(groupTitle(a.seed).localeCompare(groupTitle(b.seed)));let va=metric(a),vb=metric(b);if(!Number.isFinite(va))va=direction===1?Infinity:-Infinity;if(!Number.isFinite(vb))vb=direction===1?Infinity:-Infinity;return direction*(va-vb)||groupTitle(a.seed).localeCompare(groupTitle(b.seed))});
+  return results;
+}
+function showGroupedPage(){if(!groupedDataset)return;const all=groupedDataset.groups;const max=Math.max(1,Math.ceil(all.length/GROUP_PAGE_SIZE));page=Math.max(1,Math.min(page,max));const subset=all.slice((page-1)*GROUP_PAGE_SIZE,page*GROUP_PAGE_SIZE);animeMap=new Map(subset.flatMap(g=>g.episodes.map(a=>[a.mal_id,a])));const fragment=document.createDocumentFragment();for(const g of subset){const rendered=renderSeriesCard(g);fragment.append(rendered.card)}$('results').replaceChildren(fragment);hasNext=page<max;$('pager').classList.toggle('hidden',all.length===0);$('pageLabel').textContent='Pagina '+page+' di '+max;$('prev').disabled=page<=1;$('next').disabled=!hasNext;$('resultTitle').textContent='Classifica per opera';$('resultCount').textContent=all.length+' opere distinte · '+groupedDataset.rows.length+' schede analizzate';$('groupStatus').classList.remove('hidden');$('groupStatus').textContent='Campione: '+groupedDataset.sourcePages+' pagine di origine, '+groupedDataset.rows.length+' schede · '+groupedDataset.edges.length+' schede con relazioni verificate (AniList/Tenrai). Voti aggregati solo sulle stagioni individuate; non è una classifica globale MAL.';$('empty').classList.toggle('hidden',all.length!==0)}
+// Limitazione condivisa: la concorrenza non equivale ad aumentare il rate limit.
+let nextRelationSlot=0;
+async function rateLimitedRelation(id,signal){
+  const cached=seriesRelations.get(id);if(cached)return cached;
+  const start=Math.max(Date.now(),nextRelationSlot);nextRelationSlot=start+1100;
+  const wait=start-Date.now();if(wait>0)await pause(wait);
+  if(signal.aborted)throw new DOMException('Interrotto','AbortError');
+  for(let attempt=0;attempt<4;attempt++){
+    try{
+      const response=await fetch(API+'/anime/'+id+'/relations',{...opts,signal});
+      if(response.status===429||response.status>=500){
+        if(attempt===3)return [];
+        const retry=Number(response.headers.get('Retry-After'));
+        await pause(Number.isFinite(retry)&&retry>0?Math.min(60000,retry*1000):2200*(attempt+1));
+        continue;
+      }
+      if(!response.ok)return [];
+      const json=await response.json();const ids=[];
+      for(const rel of json.data||[]){if(!/^(prequel|sequel)$/i.test(rel.relation||''))continue;
+        for(const entry of rel.entry||[])if(String(entry.type).toLowerCase()==='anime'&&Number(entry.mal_id)>0)ids.push(Number(entry.mal_id));}
+      const distinct=[...new Set(ids)];seriesRelations.set(id,distinct);return distinct;
+    }catch(e){if(signal.aborted)throw e;if(attempt===3)return [];await pause(1400*(attempt+1));}
+  }
+  return [];
+}
+async function buildGrouped(params,run,controller){
+  const key='v10:pages='+appSettings.preloadPages+':'+params.toString();if(groupedDataset?.key===key){showGroupedPage();return}
+  const status=$('groupStatus');status.classList.remove('hidden');
+  const cached=await getSearchCache(key);if(run!==searchRun)return;
+  let rows=[],edges=[],sourcePages=0;
+  if(cached){({rows,edges,sourcePages}=cached);status.textContent='Classifica dalla cache locale…';}
+  else{
+    const dedup=new Map();
+    for(let p=1;p<=appSettings.preloadPages;p++){
+      if(run!==searchRun||controller.signal.aborted)return;
+      const result=await fetchSearchPage(params,p,controller.signal);
+      for(const a of result.data||[])if(a?.mal_id)dedup.set(a.mal_id,a);
+      sourcePages=p;status.textContent='Catalogo: '+p+'/'+appSettings.preloadPages+' pagine · '+dedup.size+' schede…';
+      if(!result.pagination?.has_next_page||!(result.data||[]).length)break;
+      await pause(320);
+    }
+    rows=[...dedup.values()];
+  }
+  if(run!==searchRun||controller.signal.aborted)return;
+  // Un'unica classifica per tutto il campione. Le pagine successive usano la stessa struttura.
+  const publish=()=>{if(run!==searchRun||controller.signal.aborted)return;groupedDataset={key,rows,edges,sourcePages,groups:groupSample(rows,edges),source:'anilist'};showGroupedPage();};
+  if(appSettings.progressive)publish();
+  // Prima riutilizza il grafo locale, poi completa le relazioni con AniList in batch.
+  const known=await loadRelationCache(rows.map(a=>a.mal_id));
+  if(run!==searchRun||controller.signal.aborted)return;
+  const edgeMap=new Map(edges.map(([id,related])=>[Number(id),related]));
+  for(const [id,related] of known)edgeMap.set(id,related);
+  edges=[...edgeMap.entries()];
+  if(appSettings.progressive)publish();
+  const pending=rows.map(a=>Number(a.mal_id)).filter(id=>!edgeMap.has(id));
+  const batches=[];
+  for(let i=0;i<pending.length;i+=ANILIST_BATCH_SIZE)batches.push(pending.slice(i,i+ANILIST_BATCH_SIZE));
+  if(!batches.length){if(!groupedDataset)publish();await putSearchCache(key,{rows,edges,sourcePages});return}
+  let cursor=0,completed=0,failed=0,fallbackUsed=0;
+  // Il fallback Tenrai è intenzionalmente limitato per non ricreare il collo di bottiglia precedente.
+  const FALLBACK_LIMIT=10;
+  const workers=Array.from({length:Math.min(2,appSettings.concurrency,batches.length)},async()=>{
+    while(cursor<batches.length&&run===searchRun&&!controller.signal.aborted){
+      const batch=batches[cursor++];
+      try{
+        const found=await fetchAniListBatch(batch,controller.signal);
+        const stored=[];
+        for(const id of batch){
+          if(!found.has(id))continue; // Mancante su AniList: non assumere relazioni vuote.
+          const linked=found.get(id);edgeMap.set(id,linked);stored.push([id,linked]);
+        }
+        await saveRelationCache(stored);
+      }catch(error){
+        if(controller.signal.aborted)return;
+        failed++;
+        // Solo su un piccolo sottoinsieme usa Tenrai; nessun fallback massivo.
+        for(const id of batch){
+          if(fallbackUsed>=FALLBACK_LIMIT)break;
+          fallbackUsed++;
+          try{const linked=await rateLimitedRelation(id,controller.signal);edgeMap.set(id,linked);await saveRelationCache([[id,linked]])}catch(e){if(controller.signal.aborted)return}
+        }
+      }
+      completed++;
+      edges=[...edgeMap.entries()];
+      status.textContent='Relazioni AniList: '+completed+'/'+batches.length+' gruppi · '+edgeMap.size+'/'+rows.length+' schede · '+(failed?'errori batch '+failed+' · ':'')+'classifica '+(appSettings.progressive?'provvisoria':'in preparazione');
+      if(appSettings.progressive&&(completed%3===0||completed===batches.length))publish();
+    }
+  });
+  await Promise.all(workers);
+  if(run!==searchRun||controller.signal.aborted)return;
+  edges=[...edgeMap.entries()];
+  await putSearchCache(key,{rows,edges,sourcePages});
+  publish();
+  if(failed)status.textContent+=' · '+failed+' gruppi AniList non disponibili; usa una nuova ricerca per ritentare.';
+}
+
+async function search(newPage=1){
+  const error=validate();if(error){notice(error);return}
+  if($('groupAnime').checked&&groupedDataset?.key==='v10:pages='+appSettings.preloadPages+':'+readFilters().toString()&&newPage!==1){page=newPage;showGroupedPage();scrollTo({top:0,behavior:'smooth'});return}
+  const run=++searchRun;page=newPage;hasNext=false;if(activeController)activeController.abort();activeController=new AbortController();const controller=activeController;
+  setBusy(true);notice('');$('groupStatus').classList.add('hidden');$('empty').classList.add('hidden');$('pager').classList.add('hidden');showSkeleton();$('resultTitle').textContent='Ricerca in corso…';$('resultCount').textContent='Caricamento dei risultati';
+  const p=readFilters();
+  try{
+    if($('groupAnime').checked){await buildGrouped(p,run,controller)}
+    else {
+      p.set('page',String(page));const r=await fetch(API+'/anime?'+p,{...opts,signal:controller.signal});if(!r.ok)throw Error('Errore API HTTP '+r.status);
+      const json=await r.json();if(run!==searchRun)return;const rows=json.data||[];hasNext=!!json.pagination?.has_next_page;animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.forEach(a=>frag.append(renderCard(a)));$('results').replaceChildren(frag);$('resultTitle').textContent='Risultati anime';const total=json.pagination?.items?.total;$('resultCount').textContent=(typeof total==='number'?total.toLocaleString('it-IT')+' risultati':'Risultati disponibili')+' · Pagina '+page;if(!rows.length){$('empty').textContent='Nessun anime corrisponde ai filtri.';$('empty').classList.remove('hidden')}else{$('pager').classList.remove('hidden');$('pageLabel').textContent='Pagina '+page}
+    }
+    const shared=new URLSearchParams(readFilters());shared.set('page',String(page));shared.set('group',$('groupAnime').checked?'1':'0');history.replaceState(null,'',location.pathname+'#'+encodeURIComponent(shared.toString()));
+  }catch(e){if(e.name==='AbortError')return;$('resultTitle').textContent='Ricerca non riuscita';$('resultCount').textContent='Controlla la connessione';notice('Non è stato possibile completare la classifica: '+e.message+'. Riprova.');$('empty').textContent='Ricerca non disponibile.';$('empty').classList.remove('hidden')}
+  finally{if(run===searchRun)setBusy(false)}
+}
+
+function reset(){groupedDataset=null;if(activeController)activeController.abort();$('searchForm').reset();$('minScore').value='8';document.querySelectorAll('.genrelist input').forEach(i=>i.checked=false);searchRun++;page=1;hasNext=false;notice('');$('groupStatus').classList.add('hidden');$('resultTitle').textContent='Anime consigliati';$('resultCount').textContent='Imposta i filtri oppure avvia la ricerca';$('results').replaceChildren();$('pager').classList.add('hidden');$('empty').textContent='Premi “Cerca anime” per visualizzare i risultati.';$('empty').classList.remove('hidden');setBusy(false);history.replaceState(null,'',location.pathname+location.search);updateFilterBadges()}
+
+// ===== v11: AniList come catalogo principale; Tenrai solo nei dettagli =====
+const AL_ENDPOINT='https://graphql.anilist.co';
+const AL_GENRES=['Action','Adventure','Comedy','Drama','Ecchi','Fantasy','Horror','Mahou Shoujo','Mecha','Music','Mystery','Psychological','Romance','Sci-Fi','Slice of Life','Sports','Supernatural','Thriller'];
+const AL_GENRE_MAL={'1':'Action','2':'Adventure','4':'Comedy','8':'Drama','10':'Fantasy','14':'Horror','7':'Mystery','22':'Romance','24':'Sci-Fi','36':'Slice of Life','30':'Sports','37':'Supernatural','41':'Thriller'};
+const AL_SEARCH=`query($page:Int!,$search:String,$genres:[String],$excluded:[String],$format:MediaFormat,$status:MediaStatus,$scoreMin:Int,$scoreMax:Int,$dateMin:FuzzyDateInt,$dateMax:FuzzyDateInt,$adult:Boolean,$sort:[MediaSort]) {
+ Page(page:$page,perPage:50){pageInfo{hasNextPage total currentPage} media(type:ANIME,search:$search,genre_in:$genres,genre_not_in:$excluded,format:$format,status:$status,averageScore_greater:$scoreMin,averageScore_lesser:$scoreMax,startDate_greater:$dateMin,startDate_lesser:$dateMax,isAdult:$adult,sort:$sort){id idMal title{romaji english native}description(asHtml:false) coverImage{large extraLarge}format status seasonYear startDate{year month day}episodes averageScore popularity favourites genres isAdult relations{edges{relationType node{id idMal type format title{romaji}}}}}}
+}`;
+let alNextSlot=0;
+function alValues(){
+ const f=readFilters(), selectedNames=name=>selected(name).map(x=>AL_GENRE_MAL[x]||x).filter(Boolean);
+ const fmt={tv:'TV',movie:'MOVIE',ova:'OVA',ona:'ONA',special:'SPECIAL',tv_special:'TV_SHORT'};
+ const st={airing:'RELEASING',complete:'FINISHED',upcoming:'NOT_YET_RELEASED'};
+ const sortCol={score:'SCORE',popularity:'POPULARITY',members:'POPULARITY',start_date:'START_DATE',title:'TITLE_ROMAJI',episodes:'EPISODES',favorites:'FAVOURITES',rank:'SCORE'}[$('order').value]||'SCORE';
+ // Popularity rank is reversed relative to other scores.
+ let direction=$('sort').value==='desc'?'_DESC':'';
+ if($('order').value==='popularity')direction=$('sort').value==='desc'?'_DESC':'';
+ return {search:f.get('q')||undefined,genres:selectedNames('genres').length?selectedNames('genres'):undefined,excluded:selectedNames('excludedGenres').length?selectedNames('excludedGenres'):undefined,format:fmt[$('type').value],status:st[$('status').value],scoreMin:$('minScore').value!==''?Math.max(0,Math.round(Number($('minScore').value)*10)-1):undefined,scoreMax:$('maxScore').value!==''?Math.min(101,Math.round(Number($('maxScore').value)*10)+1):undefined,dateMin:$('yearFrom').value?Number($('yearFrom').value)*10000-1:undefined,dateMax:$('yearTo').value?Number($('yearTo').value)*10000+1231:undefined,adult:$('sfw').checked?false:undefined,sort:[sortCol+direction]};
+}
+function toAlAnime(m){
+ const date=m.startDate?.year?`${m.startDate.year}-${String(m.startDate.month||1).padStart(2,'0')}-${String(m.startDate.day||1).padStart(2,'0')}`:null;
+ return {mal_id:m.idMal||-m.id,anilist_id:m.id,title:m.title?.romaji||m.title?.english||'Anime',title_english:m.title?.english||null,synopsis:(m.description||'').replace(/<[^>]+>/g,' ').replace(/&(?:amp|quot|lt|gt);/g,' '),images:{jpg:{large_image_url:m.coverImage?.extraLarge||m.coverImage?.large||fallbackImg,image_url:m.coverImage?.large||fallbackImg}},score:m.averageScore?m.averageScore/10:null,scored_by:0,popularity:m.popularity?m.popularity:null,members:m.popularity||0,favorites:m.favourites||0,genres:(m.genres||[]).map(name=>({name})),type:({TV:'TV',MOVIE:'Movie',OVA:'OVA',ONA:'ONA',SPECIAL:'Special',TV_SHORT:'TV Special'})[m.format]||m.format||'',status:m.status,year:m.seasonYear||m.startDate?.year,episodes:m.episodes,aired:{from:date},url:m.idMal?'https://myanimelist.net/anime/'+m.idMal:'https://anilist.co/anime/'+m.id,_alRelations:(m.relations?.edges||[]).filter(e=>e?.node?.type==='ANIME'&&['PREQUEL','SEQUEL'].includes(e.relationType)).map(e=>e.node.idMal||-e.node.id)};
+}
+async function alPage(number,controller){
+ const wait=Math.max(0,alNextSlot-Date.now());alNextSlot=Math.max(Date.now(),alNextSlot)+2300;
+ if(wait)await pause(wait);
+ for(let attempt=0;attempt<4;attempt++){
+  const r=await fetch(AL_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({query:AL_SEARCH,variables:{...alValues(),page:number}}),signal:controller.signal});
+  if(r.status===429||r.status>=500){if(attempt===3)throw Error('AniList HTTP '+r.status);const retry=Number(r.headers.get('Retry-After'));await pause(Number.isFinite(retry)&&retry>0?Math.min(retry*1000,65000):2500*(attempt+1));continue}
+  if(!r.ok)throw Error('AniList HTTP '+r.status);
+  const json=await r.json();if(json.errors?.length)throw Error('AniList: '+json.errors[0].message);
+  const raw=json.data?.Page; if(!raw)throw Error('Risposta AniList incompleta');
+  return {data:(raw.media||[]).map(toAlAnime),pagination:{has_next_page:!!raw.pageInfo?.hasNextPage,items:{total:raw.pageInfo?.total||null}}};
+ }
+}
+async function loadGenres(){genreBox('genres',AL_GENRES.map(name=>({mal_id:name,name})));genreBox('excludedGenres',AL_GENRES.map(name=>({mal_id:name,name})));}
+// AniList restituisce il grafo durante la ricerca: non è necessario un secondo ciclo API.
+async function buildGrouped(params,run,controller){
+ const status=$('groupStatus');status.classList.remove('hidden');
+ const key='v11:pages='+appSettings.preloadPages+':'+params.toString();
+ const cache=await getSearchCache(key); if(run!==searchRun||controller.signal.aborted)return;
+ let rows=[],edges=[],sourcePages=0;
+ if(cache){({rows,edges,sourcePages}=cache);status.textContent='Catalogo AniList recuperato dalla cache.'}
+ else{
+   const dedup=new Map(),edgeMap=new Map();
+   for(let p=1;p<=appSettings.preloadPages;p++){
+     if(run!==searchRun||controller.signal.aborted)return;
+     const result=await alPage(p,controller);
+     for(const a of result.data||[]){dedup.set(a.mal_id,a);edgeMap.set(a.mal_id,a._alRelations||[])}
+     rows=[...dedup.values()];edges=[...edgeMap.entries()];sourcePages=p;
+     status.textContent='Catalogo AniList: '+p+'/'+appSettings.preloadPages+' pagine · '+rows.length+' schede (relazioni incluse)';
+     if(appSettings.progressive){groupedDataset={key,rows,edges,sourcePages,groups:groupSample(rows,edges),source:'anilist'};showGroupedPage()}
+     if(!result.pagination.has_next_page||!result.data.length)break;
+   }
+   await putSearchCache(key,{rows,edges,sourcePages});
+ }
+ if(run!==searchRun||controller.signal.aborted)return;
+ groupedDataset={key,rows,edges,sourcePages,groups:groupSample(rows,edges),source:'anilist'};
+ showGroupedPage();
+ status.textContent='AniList: '+sourcePages+' pagine · '+rows.length+' anime · '+groupedDataset.groups.length+' opere nel campione. Relazioni incluse nelle risposte; media semplice dei voti AniList, non classifica globale.';
+}
+function showGroupedPage(){
+ if(!groupedDataset)return;
+ const groups=groupedDataset.groups, max=Math.max(1,Math.ceil(groups.length/GROUP_PAGE_SIZE));
+ page=Math.min(Math.max(1,page),max);
+ const subset=groups.slice((page-1)*GROUP_PAGE_SIZE,page*GROUP_PAGE_SIZE),frag=document.createDocumentFragment();
+ animeMap=new Map(subset.flatMap(g=>g.episodes.map(a=>[a.mal_id,a])));
+ subset.forEach(g=>frag.append(renderSeriesCard(g).card));$('results').replaceChildren(frag);
+ hasNext=page<max;$('pager').classList.toggle('hidden',!groups.length);
+ $('pageLabel').textContent='Pagina '+page+' di '+max;$('prev').disabled=page<=1;$('next').disabled=!hasNext;
+ $('resultTitle').textContent='Classifica per opera · '+(groupedDataset.source==='mal'?'MyAnimeList':'AniList');$('resultCount').textContent=groups.length+' opere distinte · '+groupedDataset.rows.length+' anime analizzati';
+ $('groupStatus').classList.remove('hidden');$('empty').classList.toggle('hidden',!!groups.length);
+}
+async function buildMalGrouped(params,run,controller){
+ const status=$('groupStatus');status.classList.remove('hidden');
+ const key='v15:mal:pages='+appSettings.preloadPages+':'+params.toString();
+ const cached=await getSearchCache(key);if(run!==searchRun||controller.signal.aborted)return;
+ let rows=[],edges=[],sourcePages=0;
+ if(cached){({rows,edges,sourcePages}=cached)}else{
+  const dedup=new Map();
+  for(let p=1;p<=appSettings.preloadPages;p++){
+   const result=await fetchSearchPage(params,p,controller.signal);if(run!==searchRun)return;
+   for(const a of result.data||[]){a._malSource=true;dedup.set(Number(a.mal_id),a)}
+   rows=[...dedup.values()];sourcePages=p;
+   status.textContent='Catalogo MAL: '+p+'/'+appSettings.preloadPages+' pagine · '+rows.length+' anime';
+   if(appSettings.progressive){groupedDataset={key,rows,edges,sourcePages,groups:groupSample(rows,edges),source:'mal'};showGroupedPage()}
+   if(!result.pagination?.has_next_page||!(result.data||[]).length)break;
+  }
+  const ids=rows.map(a=>Number(a.mal_id)).filter(x=>x>0),batches=[];
+  for(let i=0;i<ids.length;i+=25)batches.push(ids.slice(i,i+25));
+  const linkMap=new Map();let done=0;
+  // MAL mode uses extra calls for relations and is intentionally slower.
+  for(const batch of batches){
+   if(run!==searchRun||controller.signal.aborted)return;
+   try{const result=await fetchAniListBatch(batch,controller.signal);for(const [id,linked] of result)linkMap.set(id,linked)}catch{}
+   done++;status.textContent='MAL: relazioni '+done+'/'+batches.length+' gruppi · ricerca più lenta';
+   if(appSettings.progressive&&(done%5===0||done===batches.length)){
+    edges=[...linkMap.entries()];groupedDataset={key,rows,edges,sourcePages,groups:groupSample(rows,edges),source:'mal'};showGroupedPage()
+   }
+  }
+  edges=[...linkMap.entries()];await putSearchCache(key,{rows,edges,sourcePages});
+ }
+ if(run!==searchRun||controller.signal.aborted)return;
+ groupedDataset={key,rows,edges,sourcePages,groups:groupSample(rows,edges),source:'mal'};showGroupedPage();
+ status.textContent='MyAnimeList: '+rows.length+' schede · '+groupedDataset.groups.length+' opere del campione · relazioni verificate dove disponibili.';
+}
+async function searchMal(newPage=1){
+ const err=validate();if(err){notice(err);return}
+ const params=readFilters(),key='v15:mal:pages='+appSettings.preloadPages+':'+params.toString();
+ if($('groupAnime').checked&&groupedDataset?.key===key&&newPage!==1){page=newPage;showGroupedPage();scrollTo({top:0,behavior:'smooth'});return}
+ const run=++searchRun;page=newPage;hasNext=false;if(activeController)activeController.abort();const controller=activeController=new AbortController();
+ setBusy(true);notice('');$('groupStatus').classList.add('hidden');$('empty').classList.add('hidden');$('pager').classList.add('hidden');showSkeleton();$('resultTitle').textContent='Ricerca MyAnimeList…';$('resultCount').textContent='Tenrai · caricamento';
+ try{
+  if($('groupAnime').checked)await buildMalGrouped(params,run,controller);
+  else {const q=new URLSearchParams(params);q.set('page',String(page));const r=await fetch(API+'/anime?'+q,{...opts,signal:controller.signal});if(!r.ok)throw Error('Tenrai HTTP '+r.status);const json=await r.json();if(run!==searchRun)return;const rows=(json.data||[]).map(a=>({...a,_malSource:true}));hasNext=!!json.pagination?.has_next_page;animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.forEach(a=>frag.append(renderCard(a)));$('results').replaceChildren(frag);$('resultTitle').textContent='Risultati anime · MyAnimeList';$('resultCount').textContent=(json.pagination?.items?.total||rows.length)+' risultati · pagina '+page;$('empty').classList.toggle('hidden',!!rows.length);$('pager').classList.toggle('hidden',!rows.length);$('pageLabel').textContent='Pagina '+page;}
+ }catch(e){if(e.name!=='AbortError'){notice('Ricerca MAL non disponibile: '+e.message);$('resultTitle').textContent='Ricerca non riuscita';$('results').replaceChildren();$('empty').classList.remove('hidden')}}
+ finally{if(run===searchRun)setBusy(false)}
+}
+async function search(newPage=1){
+ if(appSettings.source==='mal')return searchMal(newPage);
+ const err=validate();if(err){notice(err);return}
+ const key='v11:pages='+appSettings.preloadPages+':'+readFilters().toString();
+ if($('groupAnime').checked&&groupedDataset?.key===key&&newPage!==1){page=newPage;showGroupedPage();scrollTo({top:0,behavior:'smooth'});return}
+ const run=++searchRun;page=newPage;hasNext=false;if(activeController)activeController.abort();const controller=activeController=new AbortController();
+ setBusy(true);notice('');$('groupStatus').classList.add('hidden');$('empty').classList.add('hidden');$('pager').classList.add('hidden');showSkeleton();$('resultTitle').textContent='Ricerca AniList…';$('resultCount').textContent='Caricamento catalogo';
+ try{
+  if($('groupAnime').checked)await buildGrouped(readFilters(),run,controller);
+  else{
+    const res=await alPage(page,controller);if(run!==searchRun)return;
+    const rows=res.data;hasNext=res.pagination.has_next_page;
+    animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.forEach(a=>frag.append(renderCard(a)));$('results').replaceChildren(frag);
+    $('resultTitle').textContent='Risultati anime · AniList';$('resultCount').textContent=(res.pagination.items.total||rows.length)+' risultati · pagina '+page;
+    $('empty').classList.toggle('hidden',!!rows.length);if(rows.length){$('pager').classList.remove('hidden');$('pageLabel').textContent='Pagina '+page}
+  }
+  const shared=new URLSearchParams(readFilters());shared.set('page',String(page));shared.set('group',$('groupAnime').checked?'1':'0');history.replaceState(null,'',location.pathname+'#'+encodeURIComponent(shared.toString()));
+ }catch(e){if(e.name==='AbortError')return;$('resultTitle').textContent='Ricerca non riuscita';notice('Ricerca AniList non disponibile: '+e.message);$('results').replaceChildren();$('empty').textContent='Verifica la connessione e riprova.';$('empty').classList.remove('hidden')}
+ finally{if(run===searchRun)setBusy(false)}
+}
+// ===== fine v11 =====
+
+$('searchForm').addEventListener('submit',e=>{e.preventDefault();search(1);closeMobileFilters()});
+$('quickSearch').addEventListener('submit',e=>{e.preventDefault();search(1);closeMobileFilters()});
+function closeMobileFilters(){$('filterPanel').classList.remove('mobile-open');$('toggleFilters').setAttribute('aria-expanded','false')}
+$('toggleFilters').addEventListener('click',()=>{const visible=$('filterPanel').classList.toggle('mobile-open');$('toggleFilters').setAttribute('aria-expanded',String(visible))});
+$('openSettings').addEventListener('click',showSettings);$('closeSettings').addEventListener('click',closeSettings);$('settingsModal').addEventListener('click',e=>{if(e.target===$('settingsModal'))closeSettings()});$('saveSettings').addEventListener('click',()=>{const oldPages=appSettings.preloadPages,oldSource=appSettings.source;appSettings={source:$('sourceSetting').value==='mal'?'mal':'anilist',concurrency:Number($('concurrencySetting').value),progressive:$('progressiveSetting').checked,preloadPages:Number($('preloadPagesSetting').value)};if(oldPages!==appSettings.preloadPages||oldSource!==appSettings.source){groupedDataset=null;if(activeController)activeController.abort();searchRun++;$('groupStatus').textContent='Impostazioni aggiornate: avvia una nuova ricerca per applicarle.';}try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(appSettings))}catch{}closeSettings()});
+$('groupAnime').addEventListener('change',()=>{groupedDataset=null;updateFilterBadges();search(1)});$('resetButton').addEventListener('click',reset);$('prev').addEventListener('click',()=>{if(page>1){search(page-1);scrollTo({top:0,behavior:'smooth'})}});$('next').addEventListener('click',()=>{if(hasNext){search(page+1);scrollTo({top:0,behavior:'smooth'})}});$('closeModal').addEventListener('click',closeModal);$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closeModal()});addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});$('copyButton').addEventListener('click',async()=>{const p=readFilters();p.set('page',String(page));p.set('group',$('groupAnime').checked?'1':'0');const link=location.href.split('#')[0]+'#'+encodeURIComponent(p.toString());try{await navigator.clipboard.writeText(link);$('copyButton').textContent='Copiato!'}catch{$('copyButton').textContent='Copia non disponibile'}setTimeout(()=>$('copyButton').textContent='Copia link ricerca',2000)});
+
+(async()=>{await loadGenres();const raw=location.hash.slice(1);if(raw){try{const p=new URLSearchParams(decodeURIComponent(raw));const map={q:'query',type:'type',status:'status',min_score:'minScore',max_score:'maxScore',order_by:'order',sort:'sort'};for(const [param,id] of Object.entries(map)){if(p.has(param))$(id).value=p.get(param)}if(p.has('start_date'))$('yearFrom').value=p.get('start_date').slice(0,4);if(p.has('end_date'))$('yearTo').value=p.get('end_date').slice(0,4);if(p.has('sfw'))$('sfw').checked=p.get('sfw')==='true';if(p.has('group'))$('groupAnime').checked=p.get('group')==='1';for(const [param,name] of [['genres','genres'],['genres_exclude','excludedGenres']]){const chosen=(p.get(param)||'').split(',');document.querySelectorAll('input[name="'+name+'"]').forEach(i=>i.checked=chosen.includes(i.value))}updateFilterBadges();search(Math.max(1,Number(p.get('page'))||1));return}catch{}}updateFilterBadges();search(1)})();
 </script>
 <script>
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
