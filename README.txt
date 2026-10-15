@@ -1,10 +1,8 @@
-Anime Explorer v16
+Anime Explorer v1.5
 
-1. Carica tutti i file nello stesso repository GitHub Pages.
-2. Apri Brave e ricarica la PWA dopo la pubblicazione.
-3. Per escludere gli anime già completati, esporta la tua lista anime da MyAnimeList in formato XML (anche XML.GZ), poi apri Impostazioni > Importa lista MAL.
-4. Attiva Filtri > Escludi anime già completati (MAL).
-5. I dati sono conservati localmente nel browser. Per aggiornare la lista devi importare un nuovo export.
-6. La sincronizzazione automatica dell’account richiede OAuth e un servizio di autenticazione compatibile, non è inclusa.
-
-V18: nelle Impostazioni, sincronizza una lista MAL pubblica con il solo nome utente tramite Jikan. La lista completa, con titoli e stati, appare in «La mia lista»; i completati possono essere esclusi dalla ricerca. È possibile importare un XML come alternativa. I dati restano nel browser.
+1. Carica tutti i file nello stesso repository GitHub Pages e ricarica la PWA dopo la pubblicazione.
+2. Per collegare una lista MyAnimeList pubblica, apri Impostazioni, inserisci il nome utente MAL e scegli «Sincronizza lista pubblica». La lettura usa Elvarora; non serve un Client ID.
+3. Nei filtri scegli Online, La mia lista o Non in lista. La ricerca nella lista usa i dati del catalogo AniList per copertine, voti e generi, anche se la fonte di ricerca generale è MAL. Puoi filtrare per stato personale e con gli altri filtri.
+4. In alternativa, importa un export MAL XML o XML.GZ dalle Impostazioni.
+5. La lista è conservata localmente nel browser. Una sincronizzazione fallita non sostituisce la lista precedente.
+6. «Raggruppa anime per serie» funziona anche per «La mia lista» e analizza tutte le pagine disponibili. Una nuova sincronizzazione o importazione XML salva anche i voti personali; puoi vederli nelle schede e ordinare per «Mio voto MAL».
