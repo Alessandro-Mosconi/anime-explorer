@@ -1,6 +1,7 @@
 // Cache solo dei file locali della PWA; le API e Google non vengono intercettati.
-const CACHE = 'anime-explorer-shell-v29';
-const ASSETS = ['./', './index.html', './version.js', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable.png'];
+importScripts('./notification-core.js');
+const CACHE = 'anime-explorer-shell-v34';
+const ASSETS = ['./', './index.html', './version.js', './calendar.js', './calendar.css', './notification-core.js', './notifications.js', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
@@ -21,4 +22,19 @@ self.addEventListener('fetch', event => {
     return;
   }
   event.respondWith(caches.match(req).then(cached => cached || fetch(req)));
+});
+self.addEventListener('message',event=>{
+  if(event.data?.type==='check-episode-alerts')event.waitUntil(self.AnimeAlerts.checkToday(self.registration).catch(()=>{}));
+});
+self.addEventListener('periodicsync',event=>{
+  if(event.tag==='anime-episode-alerts')event.waitUntil(self.AnimeAlerts.checkToday(self.registration));
+});
+self.addEventListener('notificationclick',event=>{
+  event.notification.close();
+  const url=new URL(event.notification.data?.url||'./index.html?calendar=1',self.registration.scope).href;
+  event.waitUntil(self.clients.matchAll({type:'window',includeUncontrolled:true}).then(async clients=>{
+    const existing=clients.find(client=>client.url.startsWith(self.registration.scope));
+    if(existing){const navigated=await existing.navigate(url);return (navigated||existing).focus()}
+    return self.clients.openWindow(url);
+  }));
 });
