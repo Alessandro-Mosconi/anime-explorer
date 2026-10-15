@@ -9,6 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="icon" sizes="any" type="image/png" href="./icons/icon-192.png">
 <link rel="apple-touch-icon" href="./icons/icon-192.png">
 <style>
@@ -41,6 +42,7 @@
 /* v15: collegamenti compatti e leggibili su schermi stretti */
 .source-links{display:flex;flex-wrap:wrap;gap:7px;min-width:0}.source-links .btn{display:inline-flex;justify-content:center;align-items:center;text-decoration:none;line-height:1.3;min-height:36px;min-width:76px;padding:8px 12px;white-space:normal;text-align:center}.season-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end;min-width:0}.season-links .source-links{flex-wrap:wrap}.detail-toolbar{align-items:center}.mal-comparison{padding:7px 0;color:#f4d899;font-weight:650}
 @media(max-width:620px){.detail-item{flex-direction:column;align-items:stretch}.detail-item .description{width:100%}.season-links{width:100%;justify-content:flex-start}.season-links .source-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));flex:1}.season-links .source-links .btn{width:100%;max-width:none}.season-links>button{width:auto;min-width:78px}.detail-toolbar .source-links{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.detail-toolbar .source-links .btn{width:100%}.detail-toolbar>a{max-width:100%}}
+.mal-import{border-top:1px solid var(--border);margin-top:20px;padding-top:12px}.mal-import h3{font-size:.98rem}.mal-upload{display:inline-block!important;width:auto!important;padding:10px 12px;margin:4px 0!important;cursor:pointer}.mal-import button{font-size:.8rem;padding:9px 11px}.settings-panel{max-width:520px}#watchedHint{margin-top:-5px}#malImportStatus{overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -60,6 +62,7 @@
 <label class="field"><span>Ordina per</span><select id="order"><option value="score">Voto</option><option value="popularity">Popolarità (posizione)</option><option value="members">Numero utenti</option><option value="start_date">Data di uscita</option><option value="title">Titolo</option><option value="episodes">Numero episodi</option><option value="favorites">Preferiti</option></select></label>
 <label class="field"><span>Direzione</span><select id="sort"><option value="desc">Decrescente</option><option value="asc">Crescente</option></select></label>
 <label class="checkrow"><input id="sfw" type="checkbox" checked> Escludi contenuti per adulti</label>
+<label class="checkrow"><input id="excludeWatched" type="checkbox"> Escludi anime già completati (MAL)</label><p id="watchedHint" class="small">Importa la tua lista MAL da ⚙ Impostazioni per attivare il filtro.</p>
 <div class="actions"><button class="btn" id="searchButton" type="submit">Cerca anime</button><button class="btn ghost" id="resetButton" type="button">Azzera</button></div>
 </form>
 </aside>
@@ -75,10 +78,70 @@
 </main></div>
 <footer>Ricerca e voti tramite la fonte selezionata (AniList predefinita o MAL tramite Tenrai). Tenrai è utilizzata solo per dettagli aggiuntivi. Le schede includono stagioni, episodi, consigliati e piattaforme streaming. Il pulsante AnimeUnity cerca su Google con il filtro inurl:animeunity (nelle ricerche «Season 4» diventa «4»), senza domini fissi.</footer>
 </div>
-<div class="modal settings-modal hidden" id="settingsModal" role="dialog" aria-modal="true" aria-label="Impostazioni ricerca"><section class="dialog settings-panel"><button id="closeSettings" class="close" type="button" aria-label="Chiudi impostazioni">×</button><h2>Impostazioni ricerca</h2><p class="small">Le impostazioni vengono salvate solo su questo dispositivo.</p><label>Fonte di ricerca<select id="sourceSetting"><option value="anilist">AniList — predefinita e più veloce</option><option value="mal">MyAnimeList (Tenrai) — più lenta</option></select></label><p class="small">MyAnimeList richiede più chiamate per ricostruire le opere; AniList recupera le relazioni durante la ricerca. La scelta rimane salvata su questo dispositivo.</p><label>Richieste catalogo in parallelo<select id="concurrencySetting"><option value="1">1 — Conservativo</option><option value="2">2 — Moderato</option><option value="3">3 — Consigliato</option></select></label><p class="small">AniList recupera anime e relazioni nella stessa chiamata. Un limitatore condiviso rispetta i limiti di frequenza; aumentare la concorrenza non elimina il limite API.</p><label>Pagine da precaricare (AniList: 50 / MAL: fino a 100 anime)<select id="preloadPagesSetting"><option value="5">5 pagine — 250 AniList / 500 MAL</option><option value="10">10 pagine — 500 AniList / 1.000 MAL</option><option value="15">15 pagine — 750 AniList / 1.500 MAL</option><option value="20">20 pagine — 1.000 AniList / 2.000 MAL</option></select></label><p class="small">Si applica soltanto con «Raggruppa anime». Più pagine ampliano il campione e aumentano il tempo della prima ricerca. Le pagine dei risultati già elaborati rimangono immediate.</p><label><input type="checkbox" id="progressiveSetting" checked> Mostra una classifica provvisoria mentre verifica le relazioni</label><div class="settings-actions"><button class="btn" id="saveSettings" type="button">Salva e chiudi</button></div></section></div>
+<div class="modal settings-modal hidden" id="settingsModal" role="dialog" aria-modal="true" aria-label="Impostazioni ricerca"><section class="dialog settings-panel"><button id="closeSettings" class="close" type="button" aria-label="Chiudi impostazioni">×</button><h2>Impostazioni ricerca</h2><p class="small">Le impostazioni vengono salvate solo su questo dispositivo.</p><label>Fonte di ricerca<select id="sourceSetting"><option value="anilist">AniList — predefinita e più veloce</option><option value="mal">MyAnimeList (Tenrai) — più lenta</option></select></label><p class="small">MyAnimeList richiede più chiamate per ricostruire le opere; AniList recupera le relazioni durante la ricerca. La scelta rimane salvata su questo dispositivo.</p><label>Richieste catalogo in parallelo<select id="concurrencySetting"><option value="1">1 — Conservativo</option><option value="2">2 — Moderato</option><option value="3">3 — Consigliato</option></select></label><p class="small">AniList recupera anime e relazioni nella stessa chiamata. Un limitatore condiviso rispetta i limiti di frequenza; aumentare la concorrenza non elimina il limite API.</p><label>Pagine da precaricare (AniList: 50 / MAL: fino a 100 anime)<select id="preloadPagesSetting"><option value="5">5 pagine — 250 AniList / 500 MAL</option><option value="10">10 pagine — 500 AniList / 1.000 MAL</option><option value="15">15 pagine — 750 AniList / 1.500 MAL</option><option value="20">20 pagine — 1.000 AniList / 2.000 MAL</option></select></label><p class="small">Si applica soltanto con «Raggruppa anime». Più pagine ampliano il campione e aumentano il tempo della prima ricerca. Le pagine dei risultati già elaborati rimangono immediate.</p><label><input type="checkbox" id="progressiveSetting" checked> Mostra una classifica provvisoria mentre verifica le relazioni</label><section class="mal-import"><h3>Lista personale MyAnimeList</h3><p class="small">Sincronizza una lista <strong>pubblica</strong> inserendo nome utente e Client ID della tua app MAL. Non inserire mai la password. L'accesso dall'HTML dipende dai permessi CORS dell'API.</p><label>Nome utente MAL<input id="malUsername" type="text" autocomplete="off" placeholder="Il tuo username MyAnimeList"></label><label>Client ID API MAL<input id="malClientId" type="text" autocomplete="off" placeholder="Client ID dalla pagina API MAL"></label><p class="small"><a href="https://myanimelist.net/apiconfig" target="_blank" rel="noopener noreferrer">Crea o recupera il Client ID su MyAnimeList ↗</a></p><button class="btn" type="button" id="syncMalPublic">Sincronizza lista pubblica</button><p class="small" id="malSyncStatus" role="status" aria-live="polite">Non ancora sincronizzata.</p><hr style="border:0;border-top:1px solid var(--border);margin:18px 0"><h3>Importazione manuale (alternativa)</h3><p class="small">Importa un export XML (.xml oppure .xml.gz) della tua lista anime di MyAnimeList. Nessuna password richiesta: il file viene letto e conservato solo su questo dispositivo. Non è una sincronizzazione automatica.</p><label class="btn ghost mal-upload" for="malFile">Importa lista MAL</label><input type="file" id="malFile" accept=".xml,.gz,.xml.gz,text/xml,application/xml,application/gzip" hidden><p class="small" id="malImportStatus">Nessuna lista importata.</p><button class="btn ghost" type="button" id="clearMalList">Rimuovi lista salvata</button></section>
+<div class="settings-actions"><button class="btn" id="saveSettings" type="button">Salva e chiudi</button></div></section></div>
 <div class="modal hidden" id="modal" role="dialog" aria-modal="true" aria-label="Dettagli anime"><div class="dialog"><button id="closeModal" class="close" aria-label="Chiudi">×</button><div id="modalContent"></div></div></div>
 <script>
 'use strict';
+const MAL_WATCHED_KEY='animeExplorerMalCompletedV1';
+let malCompleted=new Set();
+try{malCompleted=new Set(JSON.parse(localStorage.getItem(MAL_WATCHED_KEY)||'[]').map(Number).filter(x=>x>0))}catch{}
+function isWatched(a){return malCompleted.has(Number(a?.mal_id||a?.idMal||0))}
+function keepAnime(a){return !$('excludeWatched')?.checked||!isWatched(a)}
+function keepGroup(g){if(!$('excludeWatched')?.checked)return true;const seasons=(g.episodes||[]).filter(a=>Number(a.mal_id)>0);return !seasons.length||seasons.some(a=>!isWatched(a))}
+function watchedInfo(){const text=malCompleted.size?`${malCompleted.size} anime completati importati su questo dispositivo.`:'Nessuna lista MAL importata.';const s=$('malImportStatus');if(s)s.textContent=text;const h=$('watchedHint');if(h)h.textContent=malCompleted.size?'Sono esclusi gli anime completati. Per le serie raggruppate resta visibile l’opera se contiene stagioni non completate.':'Sincronizza la lista pubblica MAL o importa un XML da ⚙ Impostazioni.'}
+async function importMalFile(file){
+ let bytes=await file.arrayBuffer();
+ if(file.name.toLowerCase().endsWith('.gz')||new Uint8Array(bytes)[0]===31&&new Uint8Array(bytes)[1]===139){
+  if(!('DecompressionStream' in window))throw Error('Questo browser non supporta .gz: estrai il file e importa XML.');
+  bytes=await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer();
+ }
+ const xml=new DOMParser().parseFromString(new TextDecoder().decode(bytes),'application/xml');
+ if(xml.querySelector('parsererror'))throw Error('Il file XML non è valido.');
+ const entries=[...xml.querySelectorAll('anime')];
+ if(!entries.length)throw Error('Non sono state trovate voci anime nell’export MAL.');
+ const ids=new Set();
+ for(const item of entries){const id=Number(item.querySelector('series_animedb_id')?.textContent||item.querySelector('series_id')?.textContent);const status=(item.querySelector('my_status')?.textContent||'').trim().toLowerCase();if(id>0&&(status==='completed'||status==='2'))ids.add(id)}
+ malCompleted=ids;localStorage.setItem(MAL_WATCHED_KEY,JSON.stringify([...ids]));watchedInfo();return ids.size;
+}
+
+const MAL_PUBLIC_SETTINGS='animeExplorerMalPublicSettingsV1';
+let malPublicConfig={username:'',clientId:''};
+try{malPublicConfig={...malPublicConfig,...JSON.parse(localStorage.getItem(MAL_PUBLIC_SETTINGS)||'{}')}}catch{}
+async function syncPublicMalList(){
+ const username=$('malUsername').value.trim(),clientId=$('malClientId').value.trim(),button=$('syncMalPublic'),info=$('malSyncStatus');
+ if(!/^[a-zA-Z0-9_-]{2,80}$/.test(username)){info.textContent='Inserisci un nome utente MAL valido.';return}
+ if(!/^[a-zA-Z0-9_-]{8,256}$/.test(clientId)){info.textContent='Inserisci il Client ID della tua applicazione MAL (non la password).';return}
+ button.disabled=true;const ids=new Set(),seen=new Set();let offset=0;
+ try{
+  for(let batch=0;batch<100;batch++){
+   const u=new URL('https://api.myanimelist.net/v2/users/'+encodeURIComponent(username)+'/animelist');
+   u.searchParams.set('status','completed');u.searchParams.set('limit','1000');u.searchParams.set('offset',String(offset));
+   info.textContent='Sincronizzazione: '+offset+' voci esaminate…';
+   let res;
+   try{res=await fetch(u,{headers:{'X-MAL-CLIENT-ID':clientId,'Accept':'application/json'},mode:'cors',cache:'no-store'})}
+   catch{throw Error('Richiesta bloccata dal browser (CORS) o rete non raggiungibile. Puoi continuare usando l’importazione XML.')}
+   if(!res.ok){if(res.status===401||res.status===403)throw Error('Accesso negato: controlla Client ID e visibilità pubblica della lista. HTTP '+res.status);throw Error('Errore API MAL HTTP '+res.status)}
+   const json=await res.json();if(!Array.isArray(json.data))throw Error('Risposta MAL inattesa.');
+   for(const entry of json.data){const id=Number(entry.node?.id);if(id>0)ids.add(id)}
+   const next=json.paging?.next;
+   if(!next||!json.data.length)break;
+   const nu=new URL(next,'https://api.myanimelist.net');
+   if(nu.origin!=='https://api.myanimelist.net')throw Error('URL di paginazione inatteso.');
+   const nextOffset=Number(nu.searchParams.get('offset'));
+   if(!Number.isFinite(nextOffset)||nextOffset<=offset||seen.has(nextOffset))throw Error('Paginazione non valida.');
+   seen.add(nextOffset);offset=nextOffset;
+   if(batch===99)throw Error('Troppe pagine: sincronizzazione interrotta prima di salvare.');
+  }
+  // Aggiorna la lista solo alla fine, per non perdere i dati in caso di errore.
+  malCompleted=ids;localStorage.setItem(MAL_WATCHED_KEY,JSON.stringify([...ids]));
+  malPublicConfig={username,clientId};localStorage.setItem(MAL_PUBLIC_SETTINGS,JSON.stringify(malPublicConfig));
+  watchedInfo();info.textContent='Sincronizzazione completata: '+ids.size+' anime completati per '+username+'.';
+  if($('excludeWatched').checked)search(1);
+ }catch(err){info.textContent='Sincronizzazione non riuscita: '+err.message+' La lista precedente è stata mantenuta.'}
+ finally{button.disabled=false}
+}
+
 const API='https://api.tenrai.org/v1';
 const $=id=>document.getElementById(id);
 const fallbackGenres=[{mal_id:1,name:'Action'},{mal_id:2,name:'Adventure'},{mal_id:4,name:'Comedy'},{mal_id:8,name:'Drama'},{mal_id:10,name:'Fantasy'},{mal_id:14,name:'Horror'},{mal_id:7,name:'Mystery'},{mal_id:22,name:'Romance'},{mal_id:24,name:'Sci-Fi'},{mal_id:36,name:'Slice of Life'},{mal_id:30,name:'Sports'},{mal_id:37,name:'Supernatural'},{mal_id:41,name:'Suspense'}];
@@ -108,6 +171,7 @@ function activeFilterCount(){
   if($('sort').value!=='desc')n++;
   if(!$('sfw').checked)n++;
   if($('groupAnime').checked)n++;
+  if($('excludeWatched').checked)n++;
   n+=selected('genres').length+selected('excludedGenres').length;
   return n;
 }
@@ -678,7 +742,7 @@ async function search(newPage=1){
     if($('groupAnime').checked){await buildGrouped(p,run,controller)}
     else {
       p.set('page',String(page));const r=await fetch(API+'/anime?'+p,{...opts,signal:controller.signal});if(!r.ok)throw Error('Errore API HTTP '+r.status);
-      const json=await r.json();if(run!==searchRun)return;const rows=json.data||[];hasNext=!!json.pagination?.has_next_page;animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.forEach(a=>frag.append(renderCard(a)));$('results').replaceChildren(frag);$('resultTitle').textContent='Risultati anime';const total=json.pagination?.items?.total;$('resultCount').textContent=(typeof total==='number'?total.toLocaleString('it-IT')+' risultati':'Risultati disponibili')+' · Pagina '+page;if(!rows.length){$('empty').textContent='Nessun anime corrisponde ai filtri.';$('empty').classList.remove('hidden')}else{$('pager').classList.remove('hidden');$('pageLabel').textContent='Pagina '+page}
+      const json=await r.json();if(run!==searchRun)return;const rows=(json.data||[]).filter(keepAnime);hasNext=!!json.pagination?.has_next_page;animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.filter(keepAnime).forEach(a=>frag.append(renderCard(a)));$('results').replaceChildren(frag);$('resultTitle').textContent='Risultati anime';const total=json.pagination?.items?.total;$('resultCount').textContent=(typeof total==='number'?total.toLocaleString('it-IT')+' risultati':'Risultati disponibili')+' · Pagina '+page;if(!rows.length){$('empty').textContent='Nessun anime corrisponde ai filtri.';$('empty').classList.remove('hidden')}else{$('pager').classList.remove('hidden');$('pageLabel').textContent='Pagina '+page}
     }
     const shared=new URLSearchParams(readFilters());shared.set('page',String(page));shared.set('group',$('groupAnime').checked?'1':'0');history.replaceState(null,'',location.pathname+'#'+encodeURIComponent(shared.toString()));
   }catch(e){if(e.name==='AbortError')return;$('resultTitle').textContent='Ricerca non riuscita';$('resultCount').textContent='Controlla la connessione';notice('Non è stato possibile completare la classifica: '+e.message+'. Riprova.');$('empty').textContent='Ricerca non disponibile.';$('empty').classList.remove('hidden')}
@@ -749,9 +813,9 @@ async function buildGrouped(params,run,controller){
 }
 function showGroupedPage(){
  if(!groupedDataset)return;
- const groups=groupedDataset.groups, max=Math.max(1,Math.ceil(groups.length/GROUP_PAGE_SIZE));
+ const groups=groupedDataset.groups.filter(keepGroup), max=Math.max(1,Math.ceil(groups.length/GROUP_PAGE_SIZE));
  page=Math.min(Math.max(1,page),max);
- const subset=groups.slice((page-1)*GROUP_PAGE_SIZE,page*GROUP_PAGE_SIZE),frag=document.createDocumentFragment();
+ const visibleGroups=groups.filter(keepGroup);const maxVisible=Math.max(1,Math.ceil(visibleGroups.length/GROUP_PAGE_SIZE));page=Math.min(Math.max(1,page),maxVisible);const subset=visibleGroups.slice((page-1)*GROUP_PAGE_SIZE,page*GROUP_PAGE_SIZE),frag=document.createDocumentFragment();
  animeMap=new Map(subset.flatMap(g=>g.episodes.map(a=>[a.mal_id,a])));
  subset.forEach(g=>frag.append(renderSeriesCard(g).card));$('results').replaceChildren(frag);
  hasNext=page<max;$('pager').classList.toggle('hidden',!groups.length);
@@ -800,7 +864,7 @@ async function searchMal(newPage=1){
  setBusy(true);notice('');$('groupStatus').classList.add('hidden');$('empty').classList.add('hidden');$('pager').classList.add('hidden');showSkeleton();$('resultTitle').textContent='Ricerca MyAnimeList…';$('resultCount').textContent='Tenrai · caricamento';
  try{
   if($('groupAnime').checked)await buildMalGrouped(params,run,controller);
-  else {const q=new URLSearchParams(params);q.set('page',String(page));const r=await fetch(API+'/anime?'+q,{...opts,signal:controller.signal});if(!r.ok)throw Error('Tenrai HTTP '+r.status);const json=await r.json();if(run!==searchRun)return;const rows=(json.data||[]).map(a=>({...a,_malSource:true}));hasNext=!!json.pagination?.has_next_page;animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.forEach(a=>frag.append(renderCard(a)));$('results').replaceChildren(frag);$('resultTitle').textContent='Risultati anime · MyAnimeList';$('resultCount').textContent=(json.pagination?.items?.total||rows.length)+' risultati · pagina '+page;$('empty').classList.toggle('hidden',!!rows.length);$('pager').classList.toggle('hidden',!rows.length);$('pageLabel').textContent='Pagina '+page;}
+  else {const q=new URLSearchParams(params);q.set('page',String(page));const r=await fetch(API+'/anime?'+q,{...opts,signal:controller.signal});if(!r.ok)throw Error('Tenrai HTTP '+r.status);const json=await r.json();if(run!==searchRun)return;const rows=(json.data||[]).map(a=>({...a,_malSource:true})).filter(keepAnime);hasNext=!!json.pagination?.has_next_page;animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.filter(keepAnime).forEach(a=>frag.append(renderCard(a)));$('results').replaceChildren(frag);$('resultTitle').textContent='Risultati anime · MyAnimeList';$('resultCount').textContent=(json.pagination?.items?.total||rows.length)+' risultati · pagina '+page;$('empty').classList.toggle('hidden',!!rows.length);$('pager').classList.toggle('hidden',!rows.length);$('pageLabel').textContent='Pagina '+page;}
  }catch(e){if(e.name!=='AbortError'){notice('Ricerca MAL non disponibile: '+e.message);$('resultTitle').textContent='Ricerca non riuscita';$('results').replaceChildren();$('empty').classList.remove('hidden')}}
  finally{if(run===searchRun)setBusy(false)}
 }
@@ -816,7 +880,7 @@ async function search(newPage=1){
   else{
     const res=await alPage(page,controller);if(run!==searchRun)return;
     const rows=res.data;hasNext=res.pagination.has_next_page;
-    animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.forEach(a=>frag.append(renderCard(a)));$('results').replaceChildren(frag);
+    animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.filter(keepAnime).forEach(a=>frag.append(renderCard(a)));$('results').replaceChildren(frag);
     $('resultTitle').textContent='Risultati anime · AniList';$('resultCount').textContent=(res.pagination.items.total||rows.length)+' risultati · pagina '+page;
     $('empty').classList.toggle('hidden',!!rows.length);if(rows.length){$('pager').classList.remove('hidden');$('pageLabel').textContent='Pagina '+page}
   }
@@ -830,10 +894,15 @@ $('searchForm').addEventListener('submit',e=>{e.preventDefault();search(1);close
 $('quickSearch').addEventListener('submit',e=>{e.preventDefault();search(1);closeMobileFilters()});
 function closeMobileFilters(){$('filterPanel').classList.remove('mobile-open');$('toggleFilters').setAttribute('aria-expanded','false')}
 $('toggleFilters').addEventListener('click',()=>{const visible=$('filterPanel').classList.toggle('mobile-open');$('toggleFilters').setAttribute('aria-expanded',String(visible))});
+watchedInfo();
+$('malUsername').value=malPublicConfig.username||'';$('malClientId').value=malPublicConfig.clientId||'';$('syncMalPublic').addEventListener('click',syncPublicMalList);
+$('malFile').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{const count=await importMalFile(file);$('malImportStatus').textContent='Importati '+count+' anime completati. Il filtro è pronto.';if($('excludeWatched').checked)search(1)}catch(err){$('malImportStatus').textContent='Importazione non riuscita: '+err.message}finally{e.target.value=''}});
+$('clearMalList').addEventListener('click',()=>{malCompleted.clear();localStorage.removeItem(MAL_WATCHED_KEY);watchedInfo();if($('excludeWatched').checked)search(1)});
+$('excludeWatched').addEventListener('change',()=>{updateFilterBadges();if($('groupAnime').checked&&groupedDataset)showGroupedPage();else search(1)});
 $('openSettings').addEventListener('click',showSettings);$('closeSettings').addEventListener('click',closeSettings);$('settingsModal').addEventListener('click',e=>{if(e.target===$('settingsModal'))closeSettings()});$('saveSettings').addEventListener('click',()=>{const oldPages=appSettings.preloadPages,oldSource=appSettings.source;appSettings={source:$('sourceSetting').value==='mal'?'mal':'anilist',concurrency:Number($('concurrencySetting').value),progressive:$('progressiveSetting').checked,preloadPages:Number($('preloadPagesSetting').value)};if(oldPages!==appSettings.preloadPages||oldSource!==appSettings.source){groupedDataset=null;if(activeController)activeController.abort();searchRun++;$('groupStatus').textContent='Impostazioni aggiornate: avvia una nuova ricerca per applicarle.';}try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(appSettings))}catch{}closeSettings()});
-$('groupAnime').addEventListener('change',()=>{groupedDataset=null;updateFilterBadges();search(1)});$('resetButton').addEventListener('click',reset);$('prev').addEventListener('click',()=>{if(page>1){search(page-1);scrollTo({top:0,behavior:'smooth'})}});$('next').addEventListener('click',()=>{if(hasNext){search(page+1);scrollTo({top:0,behavior:'smooth'})}});$('closeModal').addEventListener('click',closeModal);$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closeModal()});addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});$('copyButton').addEventListener('click',async()=>{const p=readFilters();p.set('page',String(page));p.set('group',$('groupAnime').checked?'1':'0');const link=location.href.split('#')[0]+'#'+encodeURIComponent(p.toString());try{await navigator.clipboard.writeText(link);$('copyButton').textContent='Copiato!'}catch{$('copyButton').textContent='Copia non disponibile'}setTimeout(()=>$('copyButton').textContent='Copia link ricerca',2000)});
+$('groupAnime').addEventListener('change',()=>{groupedDataset=null;updateFilterBadges();search(1)});$('resetButton').addEventListener('click',reset);$('prev').addEventListener('click',()=>{if(page>1){search(page-1);scrollTo({top:0,behavior:'smooth'})}});$('next').addEventListener('click',()=>{if(hasNext){search(page+1);scrollTo({top:0,behavior:'smooth'})}});$('closeModal').addEventListener('click',closeModal);$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closeModal()});addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});$('copyButton').addEventListener('click',async()=>{const p=readFilters();p.set('page',String(page));p.set('group',$('groupAnime').checked?'1':'0');p.set('exclude_watched',$('excludeWatched').checked?'1':'0');const link=location.href.split('#')[0]+'#'+encodeURIComponent(p.toString());try{await navigator.clipboard.writeText(link);$('copyButton').textContent='Copiato!'}catch{$('copyButton').textContent='Copia non disponibile'}setTimeout(()=>$('copyButton').textContent='Copia link ricerca',2000)});
 
-(async()=>{await loadGenres();const raw=location.hash.slice(1);if(raw){try{const p=new URLSearchParams(decodeURIComponent(raw));const map={q:'query',type:'type',status:'status',min_score:'minScore',max_score:'maxScore',order_by:'order',sort:'sort'};for(const [param,id] of Object.entries(map)){if(p.has(param))$(id).value=p.get(param)}if(p.has('start_date'))$('yearFrom').value=p.get('start_date').slice(0,4);if(p.has('end_date'))$('yearTo').value=p.get('end_date').slice(0,4);if(p.has('sfw'))$('sfw').checked=p.get('sfw')==='true';if(p.has('group'))$('groupAnime').checked=p.get('group')==='1';for(const [param,name] of [['genres','genres'],['genres_exclude','excludedGenres']]){const chosen=(p.get(param)||'').split(',');document.querySelectorAll('input[name="'+name+'"]').forEach(i=>i.checked=chosen.includes(i.value))}updateFilterBadges();search(Math.max(1,Number(p.get('page'))||1));return}catch{}}updateFilterBadges();search(1)})();
+(async()=>{await loadGenres();const raw=location.hash.slice(1);if(raw){try{const p=new URLSearchParams(decodeURIComponent(raw));const map={q:'query',type:'type',status:'status',min_score:'minScore',max_score:'maxScore',order_by:'order',sort:'sort'};for(const [param,id] of Object.entries(map)){if(p.has(param))$(id).value=p.get(param)}if(p.has('start_date'))$('yearFrom').value=p.get('start_date').slice(0,4);if(p.has('end_date'))$('yearTo').value=p.get('end_date').slice(0,4);if(p.has('sfw'))$('sfw').checked=p.get('sfw')==='true';if(p.has('group'))$('groupAnime').checked=p.get('group')==='1';if(p.has('exclude_watched'))$('excludeWatched').checked=p.get('exclude_watched')==='1';for(const [param,name] of [['genres','genres'],['genres_exclude','excludedGenres']]){const chosen=(p.get(param)||'').split(',');document.querySelectorAll('input[name="'+name+'"]').forEach(i=>i.checked=chosen.includes(i.value))}updateFilterBadges();search(Math.max(1,Number(p.get('page'))||1));return}catch{}}updateFilterBadges();search(1)})();
 </script>
 <script>
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
