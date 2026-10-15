@@ -7,4 +7,4 @@ Anime Explorer v16
 5. I dati sono conservati localmente nel browser. Per aggiornare la lista devi importare un nuovo export.
 6. La sincronizzazione automatica dell’account richiede OAuth e un servizio di autenticazione compatibile, non è inclusa.
 
-V17: nelle Impostazioni, collega una lista MAL pubblica con username e Client ID ufficiale (https://myanimelist.net/apiconfig). Nessuna password. La sincronizzazione richiede che l’API consenta CORS dal browser, altrimenti usa XML.
+V18: nelle Impostazioni, sincronizza una lista MAL pubblica con il solo nome utente tramite Jikan. La lista completa, con titoli e stati, appare in «La mia lista»; i completati possono essere esclusi dalla ricerca. È possibile importare un XML come alternativa. I dati restano nel browser.
