@@ -10,9 +10,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="./manifest.webmanifest">
-<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
-<link rel="icon" sizes="any" type="image/png" href="./icons/icon-192.png">
-<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-solid-192.png">
+<link rel="icon" sizes="any" type="image/png" href="./icons/icon-solid-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-solid-192.png">
 <link rel="stylesheet" href="./calendar.css">
 <script src="./notification-core.js" defer></script>
 <script src="./notifications.js" defer></script>
@@ -524,7 +524,7 @@ function renderSeriesCard(series){
   const b=card.querySelector('.more button');if(b){b.textContent='Stagioni e dettagli';b.onclick=()=>showModal(root,series)}
   return {card,score:avg};
 }
-function showTopTenRanks(){if(page!==1)return;[...$('results').children].slice(0,10).forEach((card,i)=>card.prepend(el('span','rank-badge','#'+(i+1))))}
+function showRankBadges(offset=0){[...$('results').children].forEach((card,i)=>card.prepend(el('span','rank-badge','#'+(offset+i+1))))}
 // Normalizzazione SOLO per riconoscere titoli di una stessa opera, non per Google.
 function groupTitle(a){
   return String(a.title||a.title_english||'').toLowerCase()
@@ -929,7 +929,7 @@ function showGroupedPage(){
  page=Math.min(Math.max(1,page),max);
  const visibleGroups=groups.filter(keepGroup);const maxVisible=Math.max(1,Math.ceil(visibleGroups.length/GROUP_PAGE_SIZE));page=Math.min(Math.max(1,page),maxVisible);const subset=visibleGroups.slice((page-1)*GROUP_PAGE_SIZE,page*GROUP_PAGE_SIZE),frag=document.createDocumentFragment();
  animeMap=new Map(subset.flatMap(g=>g.episodes.map(a=>[a.mal_id,a])));
- subset.forEach(g=>frag.append(renderSeriesCard(g).card));$('results').replaceChildren(frag);if(!groupedDataset.provisional)showTopTenRanks();
+ subset.forEach(g=>frag.append(renderSeriesCard(g).card));$('results').replaceChildren(frag);showRankBadges((page-1)*GROUP_PAGE_SIZE);
  hasNext=page<max;$('pager').classList.toggle('hidden',!groups.length);
  $('pageLabel').textContent='Pagina '+page+' di '+max;$('prev').disabled=page<=1;$('next').disabled=!hasNext;
  $('resultTitle').textContent=(searchScope()==='mine'?'La mia lista':searchScope()==='unlisted'?'Online non in lista':'Classifica per opera')+' · '+(groupedDataset.source==='mal'?'MyAnimeList':'AniList');$('resultCount').textContent=groups.length+' opere distinte · '+groupedDataset.rows.length+' anime analizzati';
@@ -980,7 +980,7 @@ async function searchMal(newPage=1){
    const q=malQuery(params),needsLocal=malNeedsLocalFilter();let rows=[],total=null;
    if(needsLocal){q.set('limit','100');let sourcePage=1,more=true;const wanted=page*24+1,matches=[];while(more&&matches.length<wanted){q.set('page',String(sourcePage++));const r=await fetch(API+'/anime?'+q,{...opts,signal:controller.signal});if(!r.ok)throw Error('Tenrai HTTP '+r.status);const json=await r.json();if(run!==searchRun)return;matches.push(...(json.data||[]).filter(keepMalChoice));more=!!json.pagination?.has_next_page&&!!json.data?.length}rows=matches.slice((page-1)*24,page*24);hasNext=matches.length>page*24||more;total=more?null:matches.length}
    else{q.set('page',String(page));const r=await fetch(API+'/anime?'+q,{...opts,signal:controller.signal});if(!r.ok)throw Error('Tenrai HTTP '+r.status);const json=await r.json();if(run!==searchRun)return;rows=(json.data||[]).filter(keepMalChoice);hasNext=!!json.pagination?.has_next_page;total=json.pagination?.items?.total||null}
-   rows=rows.map(a=>({...a,_malSource:true})).filter(keepAnime);animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.forEach(a=>frag.append(renderCard(a)));$('results').replaceChildren(frag);showTopTenRanks();$('resultTitle').textContent='Risultati anime · MyAnimeList';$('resultCount').textContent=(total===null?'Risultati filtrati':total+' risultati');$('empty').classList.toggle('hidden',!!rows.length);$('pager').classList.toggle('hidden',!rows.length);$('pageLabel').textContent='Pagina '+page;
+   rows=rows.map(a=>({...a,_malSource:true})).filter(keepAnime);animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.forEach(a=>frag.append(renderCard(a)));$('results').replaceChildren(frag);showRankBadges((page-1)*24);$('resultTitle').textContent='Risultati anime · MyAnimeList';$('resultCount').textContent=(total===null?'Risultati filtrati':total+' risultati');$('empty').classList.toggle('hidden',!!rows.length);$('pager').classList.toggle('hidden',!rows.length);$('pageLabel').textContent='Pagina '+page;
   }
  }catch(e){if(e.name!=='AbortError'){notice('Ricerca MAL non disponibile: '+e.message);$('resultTitle').textContent='Ricerca non riuscita';$('results').replaceChildren();$('empty').classList.remove('hidden')}}
  finally{if(run===searchRun)setBusy(false)}
@@ -997,7 +997,7 @@ async function search(newPage=1,deep=false){
   else{
     const res=searchScope()==='mine'&&$('order').value==='my_score'?await personalScorePage(page,controller,run):await alPage(page,controller);if(run!==searchRun||!res)return;
     const rows=res.data;hasNext=res.pagination.has_next_page;
-    animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.filter(keepAnime).forEach(a=>frag.append(renderCard(a)));$('results').replaceChildren(frag);showTopTenRanks();
+    animeMap=new Map(rows.map(a=>[a.mal_id,a]));const frag=document.createDocumentFragment();rows.filter(keepAnime).forEach(a=>frag.append(renderCard(a)));$('results').replaceChildren(frag);showRankBadges((page-1)*(searchScope()==='mine'&&$('order').value==='my_score'?24:50));
     $('resultTitle').textContent=searchScope()==='mine'?'La mia lista · AniList':searchScope()==='unlisted'?'Online non in lista · AniList':'Risultati anime · AniList';$('resultCount').textContent=res.pagination.items.total!=null?Number(res.pagination.items.total).toLocaleString('it-IT')+' risultati':'Risultati filtrati';
     $('empty').classList.toggle('hidden',!!rows.length);if(rows.length){$('pager').classList.remove('hidden');$('pageLabel').textContent='Pagina '+page}
   }
