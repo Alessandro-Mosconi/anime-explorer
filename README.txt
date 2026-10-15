@@ -8,3 +8,4 @@ Il numero di versione mostrato nel sito è definito soltanto in version.js.
 4. In alternativa, importa un export MAL XML o XML.GZ dalle Impostazioni.
 5. La lista è conservata localmente nel browser. Una sincronizzazione fallita non sostituisce la lista precedente.
 6. «Raggruppa anime per serie» funziona anche per «La mia lista» e analizza tutte le pagine disponibili. Una nuova sincronizzazione o importazione XML salva anche i voti personali; puoi vederli nelle schede e ordinare per «Mio voto MAL».
+7. In «La mia lista» puoi filtrare per 0 episodi, alcuni episodi o tutti gli episodi visti. Aggiorna la lista con una sincronizzazione o un XML per salvare l'avanzamento.

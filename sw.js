@@ -1,5 +1,5 @@
 // Cache solo dei file locali della PWA; le API e Google non vengono intercettati.
-const CACHE = 'anime-explorer-shell-v26';
+const CACHE = 'anime-explorer-shell-v27';
 const ASSETS = ['./', './index.html', './version.js', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
